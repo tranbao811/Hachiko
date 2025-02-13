@@ -1,0 +1,1051 @@
+
+.button_mass {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  z-index: 3;
+}
+
+.button_save {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  z-index: 3;
+}
+.button_csv {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  z-index: 3;
+}
+.search-container {
+  width: 100%;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.search-container h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 40px;
+    color: #ff0000;
+    font-weight: bold;
+}
+.search-container h3 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: #000000;
+}
+.search-container .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.search-container label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+    width: 100px;
+}
+.search-container input[type="text"], .search-container select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+}
+.responsive-table{
+    overflow-x: auto;
+}
+thead {
+position: sticky;
+top: 0;
+background-color: #fff; /* Tùy chọn: để đảm bảo hàng tiêu đề có nền */
+z-index: 1; /* Tùy chọn: để đảm bảo hàng tiêu đề nằm trên cùng */
+}
+
+th, td {
+  border: 0px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; /* Ngăn chặn xuống dòng */
+  overflow: hidden; /* Ẩn phần tràn */
+  text-overflow: ellipsis; /* Thêm dấu ba chấm nếu tràn */
+  max-width: 250px;
+}
+
+
+  .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 3;
+  }
+  .popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fefefe;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      max-width: 1000px;
+      text-align: center;
+      z-index: 3;
+      width: 50%;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .popup.active, .overlay.active {
+      display: block !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  } 
+  
+  .popup h2 {
+      margin-top: 0;
+  }
+  .button-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 20px;
+      /* width: 900px; */
+  }
+  .button-container .button:hover {
+        background-color: #0056b3 !important;
+  }
+
+  .button-container1 {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 20px;
+      /* width: 900px; */
+  }
+  .button-container1 .button:hover {
+        background-color: #0056b3 !important;
+  }
+
+  .popup button {
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex: 1;
+  }
+  .popup button:hover {
+      opacity: 0.8;
+      background-color: #0056b3;
+  }
+  
+  .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  .close-button:hover,
+  .close-button:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  #editForm {
+      display: flex;
+      flex-direction: column;
+  }
+  #editForm input[type="text"] {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+  }
+  #editForm button {
+      padding: 10px 20px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      align-self: flex-start;
+  }
+  #editForm button:hover {
+      background-color: #0056b3;
+  }
+
+  h2 {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+  .form-group label {
+      width: 150px;
+      margin-right: 10px;
+  }
+  .form-group input, .form-group select {
+      flex: 1;
+      padding: 8px;
+      box-sizing: border-box;
+  }
+  .form-group input[readonly] {
+      background-color: #e9ecef;
+  }
+  .form-group select {
+      appearance: none;
+      background: #fff url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4gPHBhdGggZmlsbD0iIzAwMCIgZD0iTTEuNCA0bDcuNiA3LjYgNy42LTcuNkgxLjR6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+      background-size: 12px;
+  }
+  .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  .form-group button:hover {
+      background-color: #0056b3;
+  }
+
+  .form-group1 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+  .form-group1 label {
+      width: 150px;
+      margin-right: 10px;
+  }
+  .form-group1 input, .form-group select {
+      flex: 1;
+      padding: 8px;
+      box-sizing: border-box;
+  }
+  .form-group1 input[readonly] {
+      background-color: #e9ecef;
+  }
+  .form-group1 select {
+      appearance: none;
+      background: #fff url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4gPHBhdGggZmlsbD0iIzAwMCIgZD0iTTEuNCA0bDcuNiA3LjYgNy42LTcuNkgxLjR6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+      background-size: 12px;
+  }
+  .form-group1 button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  .form-group1 button:hover {
+      background-color: #0056b3;
+  }
+
+  .button-group {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      width : 424px;
+  }
+  .button-group button {
+      width: 100px;
+      padding: 10px;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 10px;
+  }
+  .button-group .confirm {
+      background-color: #008d13; /* Màu xanh lá cây cho nút Xác nhận gửi */
+  }
+  .button-group .back {
+      background-color: #ff0000; /* Màu đỏ cho nút Trở lại */
+  }
+  button[disabled] {
+    pointer-events: none; /* Vô hiệu hóa khả năng nhấn */
+    opacity: 0.5;         /* Làm mờ nút khi bị vô hiệu hóa */
+}
+/* CSS để vô hiệu hóa hover và tương tác của form-group1 */
+.disabled-hover {
+    pointer-events: none; /* Ngăn chặn mọi sự kiện chuột */
+    opacity: 0.5; /* Giảm độ mờ để biểu thị trạng thái không hoạt động */
+}
+.small-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.small-button:hover {
+    background-color: #0056b3;
+}
+.highlight {
+    background-color: yellow; /* Màu nền nổi bật */
+}
+
+/* Cố định phần tiêu đề và ô tìm kiếm */
+#popupHeader {
+  background-color: white;
+  padding: 10px 0;
+}
+
+/* Table nằm dưới và có thể cuộn */
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#simTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#simTable th, #simTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#simTable th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+div.form-container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 10px auto;
+}
+
+div.form-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: inline;
+  color: #333;
+  font-size: 14px;
+}
+
+div.form-container input[type="text"],
+div.form-container input[type="date"],
+div.form-container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+div.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+div.form-container button[type="submit"],
+div.form-container button[type="button"] {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+div.form-container button[type="submit"] {
+    background-color: #00ad0e;
+}
+
+div.form-container button[type="submit"]:hover {
+    background-color: #007a0a;
+}
+
+div.form-container button[type="button"] {
+    background-color: #ff0000;
+}
+
+div.form-container button[type="button"]:hover {
+    background-color: #960000;
+}
+
+div.form-container div {
+    margin-bottom: 15px;
+}
+
+div.form-container div div {
+    margin-bottom: 10px;
+}
+
+div.form-container div.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  div.form-container {
+    padding: 10px;
+  }
+  div.form-container div {
+    flex-direction: column;
+  }
+  div.form-container div div {
+    width: 100%;
+  }
+}
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Đảm bảo popup nằm trên cùng */
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px; /* Góc bo tròn */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ cho popup */
+    width: 90%;
+    max-width: 450px; /* Giới hạn chiều rộng tối đa */
+}
+
+h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    color: #333; /* Màu sắc tiêu đề */
+}
+
+label {
+    font-weight: bold; /* Làm đậm nhãn */
+    margin-bottom: 5px; /* Khoảng cách dưới nhãn */
+    display: block; /* Đảm bảo nhãn chiếm toàn bộ dòng */
+}
+
+select [type="file"] {
+    width: 100%; /* Chiều rộng đầy đủ cho input */
+    padding: 10px; /* Khoảng cách bên trong */
+    margin-bottom: 15px; /* Khoảng cách dưới input */
+    border: 1px solid #ddd; /* Đường viền nhẹ */
+    border-radius: 5px; /* Góc bo tròn */
+    font-size: 16px; /* Kích thước chữ cho dễ đọc */
+}
+
+.btn-upload {
+    background-color: #00ad0e !important; /* Màu xanh */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không có viền */
+    padding: 10px 15px; /* Padding cho nút */
+    text-align: center; /* Canh giữa chữ */
+    text-decoration: none; /* Không có gạch chân */
+    display: inline-block; /* Hiển thị như một khối nội tuyến */
+    font-size: 16px; /* Kích thước chữ */
+    margin: 4px 2px; /* Margins */
+    cursor: pointer; /* Con trỏ tay khi hover */
+    border-radius: 5px; /* Bo tròn góc */
+}
+
+.btn-upload:hover {
+    background-color: #006808 !important; /* Màu xanh đậm khi hover */
+}
+
+button:hover {
+    background-color: #d32f2f; /* Màu nền khi di chuột cho nút đóng */
+}
+
+#successMessage {
+    display: none; /* Ẩn thông báo thành công ban đầu */
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4caf50; /* Màu xanh cho thông báo */
+    color: white; /* Màu chữ trắng */
+    padding: 15px; /* Khoảng cách bên trong */
+    border-radius: 5px; /* Góc bo tròn */
+    z-index: 1001; /* Đặt z-index cao hơn để nổi bật */
+}
+
+.button_wifi {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  z-index: 3;
+}
+
+.button_save {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  z-index: 3;
+}
+.button_csv {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  z-index: 3;
+}
+.search-container {
+  width: 100%;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.search-container h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 40px;
+    color: #ff0000;
+    font-weight: bold;
+}
+.search-container h3 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: #000000;
+}
+.search-container .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.search-container label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+    width: 100px;
+}
+.search-container input[type="text"], .search-container select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+}
+.responsive-table{
+    overflow-x: auto;
+}
+thead {
+position: sticky;
+top: 0;
+background-color: #fff; /* Tùy chọn: để đảm bảo hàng tiêu đề có nền */
+z-index: 1; /* Tùy chọn: để đảm bảo hàng tiêu đề nằm trên cùng */
+}
+
+th, td {
+  border: 0px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; /* Ngăn chặn xuống dòng */
+  overflow: hidden; /* Ẩn phần tràn */
+  text-overflow: ellipsis; /* Thêm dấu ba chấm nếu tràn */
+  max-width: 250px;
+}
+
+  .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 3;
+  }
+  .popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fefefe;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      max-width: 1000px;
+      text-align: center;
+      z-index: 3;
+      width: 50%;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .popup.active, .overlay.active {
+      display: block !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  } 
+  
+  .popup h2 {
+      margin-top: 0;
+  }
+  .button-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 20px;
+      /* width: 900px; */
+  }
+  .button-container .button:hover {
+        background-color: #0056b3 !important;
+  }
+
+  .button-container1 {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 20px;
+      /* width: 900px; */
+  }
+  .button-container1 .button:hover {
+        background-color: #0056b3 !important;
+  }
+
+  .popup button {
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex: 1;
+  }
+  .popup button:hover {
+      opacity: 0.8;
+      background-color: #0056b3;
+  }
+  
+  .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  .close-button:hover,
+  .close-button:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  #editForm {
+      display: flex;
+      flex-direction: column;
+  }
+  #editForm input[type="text"] {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+  }
+  #editForm button {
+      padding: 10px 20px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      align-self: flex-start;
+  }
+  #editForm button:hover {
+      background-color: #0056b3;
+  }
+
+  h2 {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+  .form-group label {
+      width: 150px;
+      margin-right: 10px;
+  }
+  .form-group input, .form-group select {
+      flex: 1;
+      padding: 8px;
+      box-sizing: border-box;
+  }
+  .form-group input[readonly] {
+      background-color: #e9ecef;
+  }
+  .form-group select {
+      appearance: none;
+      background: #fff url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4gPHBhdGggZmlsbD0iIzAwMCIgZD0iTTEuNCA0bDcuNiA3LjYgNy42LTcuNkgxLjR6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+      background-size: 12px;
+  }
+  .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  .form-group button:hover {
+      background-color: #0056b3;
+  }
+
+  .form-group1 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+  }
+  .form-group1 label {
+      width: 150px;
+      margin-right: 10px;
+  }
+  .form-group1 input, .form-group select {
+      flex: 1;
+      padding: 8px;
+      box-sizing: border-box;
+  }
+  .form-group1 input[readonly] {
+      background-color: #e9ecef;
+  }
+  .form-group1 select {
+      appearance: none;
+      background: #fff url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4gPHBhdGggZmlsbD0iIzAwMCIgZD0iTTEuNCA0bDcuNiA3LjYgNy42LTcuNkgxLjR6Ii8+IDwvc3ZnPg==') no-repeat right 10px center;
+      background-size: 12px;
+  }
+  .form-group1 button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  .form-group1 button:hover {
+      background-color: #0056b3;
+  }
+
+  .button-group {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      width : 424px;
+  }
+  .button-group button {
+      width: 100px;
+      padding: 10px;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 10px;
+  }
+  .button-group .confirm {
+      background-color: #008d13; /* Màu xanh lá cây cho nút Xác nhận gửi */
+  }
+  .button-group .back {
+      background-color: #ff0000; /* Màu đỏ cho nút Trở lại */
+  }
+  button[disabled] {
+    pointer-events: none; /* Vô hiệu hóa khả năng nhấn */
+    opacity: 0.5;         /* Làm mờ nút khi bị vô hiệu hóa */
+}
+/* CSS để vô hiệu hóa hover và tương tác của form-group1 */
+.disabled-hover {
+    pointer-events: none; /* Ngăn chặn mọi sự kiện chuột */
+    opacity: 0.5; /* Giảm độ mờ để biểu thị trạng thái không hoạt động */
+}
+.small-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.small-button:hover {
+    background-color: #0056b3;
+}
+.highlight {
+    background-color: yellow; /* Màu nền nổi bật */
+}
+
+/* Cố định phần tiêu đề và ô tìm kiếm */
+#popupHeader {
+  background-color: white;
+  padding: 10px 0;
+}
+
+/* Table nằm dưới và có thể cuộn */
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#simTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#simTable th, #simTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#simTable th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+div.form-container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 10px auto;
+}
+
+div.form-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: inline;
+  color: #333;
+  font-size: 14px;
+}
+
+div.form-container input[type="text"],
+div.form-container input[type="date"],
+div.form-container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+div.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+div.form-container button[type="submit"],
+div.form-container button[type="button"] {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+div.form-container button[type="submit"] {
+    background-color: #00ad0e;
+}
+
+div.form-container button[type="submit"]:hover {
+    background-color: #007a0a;
+}
+
+div.form-container button[type="button"] {
+    background-color: #ff0000;
+}
+
+div.form-container button[type="button"]:hover {
+    background-color: #960000;
+}
+
+div.form-container div {
+    margin-bottom: 15px;
+}
+
+div.form-container div div {
+    margin-bottom: 10px;
+}
+
+div.form-container div.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  div.form-container {
+    padding: 10px;
+  }
+  div.form-container div {
+    flex-direction: column;
+  }
+  div.form-container div div {
+    width: 100%;
+  }
+}
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Đảm bảo popup nằm trên cùng */
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px; /* Góc bo tròn */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ cho popup */
+    width: 90%;
+    max-width: 450px; /* Giới hạn chiều rộng tối đa */
+}
+
+h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    color: #333; /* Màu sắc tiêu đề */
+}
+
+label {
+    font-weight: bold; /* Làm đậm nhãn */
+    margin-bottom: 5px; /* Khoảng cách dưới nhãn */
+    display: block; /* Đảm bảo nhãn chiếm toàn bộ dòng */
+}
+
+select [type="file"] {
+    width: 100%; /* Chiều rộng đầy đủ cho input */
+    padding: 10px; /* Khoảng cách bên trong */
+    margin-bottom: 15px; /* Khoảng cách dưới input */
+    border: 1px solid #ddd; /* Đường viền nhẹ */
+    border-radius: 5px; /* Góc bo tròn */
+    font-size: 16px; /* Kích thước chữ cho dễ đọc */
+}
+
+.btn-upload {
+    background-color: #00ad0e !important; /* Màu xanh */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không có viền */
+    padding: 10px 15px; /* Padding cho nút */
+    text-align: center; /* Canh giữa chữ */
+    text-decoration: none; /* Không có gạch chân */
+    display: inline-block; /* Hiển thị như một khối nội tuyến */
+    font-size: 16px; /* Kích thước chữ */
+    margin: 4px 2px; /* Margins */
+    cursor: pointer; /* Con trỏ tay khi hover */
+    border-radius: 5px; /* Bo tròn góc */
+}
+
+.btn-upload:hover {
+    background-color: #006808 !important; /* Màu xanh đậm khi hover */
+}
+
+button:hover {
+    background-color: #d32f2f; /* Màu nền khi di chuột cho nút đóng */
+}
+
+#successMessage {
+    display: none; /* Ẩn thông báo thành công ban đầu */
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4caf50; /* Màu xanh cho thông báo */
+    color: white; /* Màu chữ trắng */
+    padding: 15px; /* Khoảng cách bên trong */
+    border-radius: 5px; /* Góc bo tròn */
+    z-index: 1001; /* Đặt z-index cao hơn để nổi bật */
+}
