@@ -793,29 +793,7 @@
             </div>
         </div>
 
-
-        <!-- Modal Delete Order -->
-        <!-- <div class="modal fade" id="deleteOrderModal" tabindex="-1" aria-labelledby="deleteOrderModalLabel">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteOrderModalLabel">Xóa đơn hàng</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Bạn có chắc chắn muốn xóa đơn hàng này không?</p>
-                        <form id="deleteOrderForm">
-                            @csrf
-                            @method('DELETE')
-                            <input type="hidden" name="order_id" id="delete_order_id">
-                            <button type="submit">Xóa</button>
-                            <button type="button" data-bs-dismiss="modal">Hủy</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-</main>
+    </main>
 <script>
     function formatPostalCode(input) {
         let value = input.value.replace(/\D/g, ''); // Loại bỏ tất cả ký tự không phải là chữ số

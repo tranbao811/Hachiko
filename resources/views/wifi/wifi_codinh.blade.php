@@ -88,7 +88,7 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
-        width: 1400px;
+        width: 1000px;
     }
 
     /* Kiểu dáng cho phần đầu modal */
@@ -201,6 +201,16 @@
 @if (session('success'))
 <div class="alert alert-success">
     {{ session('success') }}
+</div>
+@endif
+<!-- Hiển thị lỗi nếu có -->
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
 </div>
 @endif
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -334,7 +344,6 @@
                                             @endphp
                                             @if(in_array($userLevel, [1, 2, 3, 4, 5]))
                                             <td>
-                                                <!-- Kiểm tra và đảm bảo rằng career_confirmed là boolean, nếu là TRUE thì checkbox sẽ được tích -->
                                                 <input type="checkbox" {{ $item->career_confirmed == 1 ? 'checked' : '' }} disabled>
                                             </td>
                                             <td>{{ $item->payment_status }}</td>
@@ -394,7 +403,6 @@
                                             <td>{{ $item->residence_card_number }}</td>
                                             <td>{{ $item->qualification_status }}</td>
                                             <td>
-                                                <!-- Kiểm tra và đảm bảo rằng residence_card_shared_with là boolean, nếu là TRUE thì checkbox sẽ được tích -->
                                                 <input type="checkbox" {{ $item->residence_card_shared_with == 1 ? 'checked' : '' }} disabled>
                                             </td>
                                             <td>{{ $item->remarks_detail }}</td>
@@ -499,8 +507,8 @@
                                 <label for="applicant_gender" class="form-label">申込者・性別 (Giới tính)</label>
                                 <select class="form-control" id="applicant_gender" name="applicant_gender">
                                     <option value="" selected>-- 選択してください --</option>
-                                    <option value="男性">男性 (Nam)</option>
-                                    <option value="女性">女性 (Nữ)</option>
+                                    <option value="男">男性 (Nam)</option>
+                                    <option value="女">女性 (Nữ)</option>
                                     <option value="不明">不明 (Không rõ ràng)</option>
                                 </select>
                             </div>
@@ -533,7 +541,7 @@
                             </div>
                             <!-- Khoảng cách giữa 2 trường với màu nền đỏ -->
                             <div class="mb-3" style="background-color: red; height: 1px;"></div>
-                            
+
                             <div class="mb-3">
                                 <label for="postal_code" class="form-label">郵便番号 (Mã bưu điện)</label>
                                 <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Nhập mã bưu điện" required>
@@ -652,10 +660,6 @@
         // document.getElementById('constructionDate').value = today;
         document.getElementById('application_date').min = today;
         document.getElementById('construction_request_date').min = today;
-    });
-
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        console.log(checkbox.checked); // Kiểm tra xem checkbox có được tích hay không
     });
 
     function searchTable_WiFi() {
