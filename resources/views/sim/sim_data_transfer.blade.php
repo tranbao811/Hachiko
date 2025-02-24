@@ -245,7 +245,7 @@
         const confirmBtn = document.getElementById('confirmBtn');
 
         if (!file) {
-            alert('Vui lòng chọn tệp CSV!');
+            alert('CSVファイル選択してください！');
             return;
         }
 
@@ -294,7 +294,7 @@
                             // SIM không tồn tại
                             row.innerHTML = `
                             <td>${index + 1}</td>
-                            <td colspan="7">Số SIM "${simNumber}" không tồn tại</td>
+                            <td colspan="7">SIM カード番号 "${simNumber}" は存在しません。</td>
                         `;
                             row.classList.add('error-row'); // Thêm lớp CSS để đánh dấu
                             hasError = true; // Đánh dấu có lỗi
@@ -316,7 +316,7 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Có lỗi xảy ra, vui lòng thử lại!');
+                    alert('エラーが発生しました。もう一度お試しください！');
                 })
                 .finally(() => {
                     uploadBtn.disabled = false;
@@ -347,7 +347,7 @@
         tableRows.forEach(row => {
             const cells = row.cells;
             const simPhoneNumber = cells[2].innerText;
-            const isValid = cells[5].innerText !== "SIM không tồn tại";
+            const isValid = cells[5].innerText !== "SIM無存在";
 
             if (isValid) {
                 updatedSimData.push({
@@ -371,14 +371,14 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Cập nhật thành công!');
+                    alert('更新が完了しました！');
                 } else {
-                    alert('Cập nhật thất bại, vui lòng thử lại!');
+                    alert('更新に失敗しました。もう一度お試しください！');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Có lỗi xảy ra, vui lòng thử lại!');
+                alert('エラーが発生しました。もう一度お試しください！');
             });
     });
 </script>

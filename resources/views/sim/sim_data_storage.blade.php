@@ -242,20 +242,20 @@
 
                         // Kiểm tra số điện thoại hợp lệ
                         if (!phoneNumberRegex.test(phoneNumber)) {
-                            isValid = false; // Nếu số điện thoại không hợp lệ, tắt nút xác nhận
+                            isValid = false; // Nếu số điện thoại không hợp lệ, tắt nút 確定
                         }
 
                         // Kiểm tra serialNumber hợp lệ (không để trống)
                         if (!serialNumber || serialNumber.trim() === "") {
-                            isValid = false; // Nếu serialNumber trống, tắt nút xác nhận
+                            isValid = false; // Nếu serialNumber trống, tắt nút 確定
                         }
 
                         // Kiểm tra provider (プロバイダー) và planName (プラン名) không được để trống
                         if (!provider || provider.trim() === "") {
-                            isValid = false; // Nếu provider trống, tắt nút xác nhận
+                            isValid = false; // Nếu provider trống, tắt nút 確定
                         }
                         if (!planName || planName.trim() === "") {
-                            isValid = false; // Nếu planName trống, tắt nút xác nhận
+                            isValid = false; // Nếu planName trống, tắt nút 確定
                         }
 
                         // Tạo một dòng mới trong bảng
@@ -314,9 +314,9 @@
 
                 // Kiểm tra tính hợp lệ của tất cả các dòng dữ liệu
                 if (!isValid) {
-                    confirmBtn.disabled = true; // Tắt nút xác nhận nếu có số điện thoại, serial, provider hoặc plan name không hợp lệ
+                    confirmBtn.disabled = true; // Tắt nút 確定 nếu có số điện thoại, serial, provider hoặc plan name không hợp lệ
                 } else {
-                    confirmBtn.disabled = false; // Kích hoạt nút xác nhận nếu tất cả số điện thoại, serial, provider và plan name hợp lệ
+                    confirmBtn.disabled = false; // Kích hoạt nút 確定 nếu tất cả số điện thoại, serial, provider và plan name hợp lệ
                 }
             };
 
@@ -327,7 +327,7 @@
         }
     });
 
-    // Sự kiện click nút xác nhận
+    // Sự kiện click nút 確定
     confirmBtn.addEventListener("click", () => {
         const rows = [];
         const tableRows = previewTable.getElementsByTagName("tr");
@@ -373,7 +373,7 @@
                     // Reset input file
                     fileInput.value = "";
 
-                    // Vô hiệu hóa nút xác nhận
+                    // Vô hiệu hóa nút 確定
                     confirmBtn.disabled = true;
                 } else {
                     alert("データの保存に失敗しました: " + data.error); // Thông báo lỗi

@@ -351,7 +351,7 @@
 			</select>
 			<br><br>
 
-			<!-- Chọn ngày yêu cầu -->
+			<!-- Chọn 依頼日 -->
 			<label for="requestDate">ご依頼の日付：</label>
 			<input type="date" id="requestDate" required>
 			<br><br>
@@ -365,7 +365,7 @@
 				<table id="csvTable" style="width: 100%; display: block; border-collapse: collapse;">
 					<thead style="background-color: #f8f9fa; display: table; width: 100%; table-layout: fixed;">
 						<tr>
-							<th class="d-none d-xl-table-cell">Thông tin File CSV</th>
+							<th class="d-none d-xl-table-cell">CSVファイル情報</th>
 						</tr>
 					</thead>
 					<tbody id="csvTableBody" style="display: block; overflow-y: auto; height: 300px; width: 100%; overflow-x: hidden;">
@@ -701,7 +701,7 @@
 		const rowData = JSON.parse(localStorage.getItem('selectedRowData'));
 
 		if (!rowData) {
-			alert("Dữ liệu không hợp lệ, vui lòng thử lại!");
+			alert("無効なデータです。もう一度お試しください。");
 			closeAllPopups();
 			return;
 		}
@@ -807,11 +807,11 @@
 		const confirmedAt = ''; // Giá trị mặc định là chuỗi rỗng
 
 		if (!selectedRequestName) {
-			alert('Không tìm thấy tên yêu cầu đã chọn!');
+			alert('選択した要求名が見つかりません！');
 			return;
 		}
 		if (!createdAt) {
-			alert('Vui lòng chọn ngày!');
+			alert('日付選択');
 			return;
 		}
 
@@ -838,11 +838,11 @@
 			})
 			.then(data => {
 				console.log('Thành công:', data);
-				alert('Dữ liệu đã được gửi thành công!');
+				alert('データが正常に送信されました！');
 			})
 			.catch(error => {
-				console.error('Lỗi:', error);
-				alert(`Gửi dữ liệu thất bại: ${error.message}`);
+				console.error('エラーが発生しました!', error);
+				alert(`データの送信に失敗しました ${error.message}`);
 			});
 
 		// Đóng popup sau khi gửi
@@ -948,7 +948,7 @@
 					// Nếu không tìm thấy số điện thoại, thêm thông báo lỗi vào bảng
 					const errorTd = document.createElement("td");
 					errorTd.colSpan = tr.children.length; // Đảm bảo thông báo lỗi chiếm toàn bộ chiều rộng bảng
-					errorTd.textContent = `SIM không tồn tại`;
+					errorTd.textContent = `SIM無存在`;
 					errorTd.style.color = "red";
 					errorTd.style.textAlign = "center";
 					tr.appendChild(errorTd);
@@ -961,12 +961,12 @@
 				tableBody.appendChild(tr);
 			})
 			.catch(error => {
-				console.error(`Lỗi khi kiểm tra số điện thoại: ${phoneNumber}`, error);
+				console.error(`電話番号の確認中にエラーが発生しました ${phoneNumber}`, error);
 
 				// Thêm thông báo lỗi vào bảng nếu có lỗi trong quá trình kiểm tra
 				const errorTd = document.createElement("td");
 				errorTd.colSpan = tr.children.length; // Đảm bảo thông báo lỗi chiếm toàn bộ chiều rộng bảng
-				errorTd.textContent = "Đã xảy ra lỗi khi kiểm tra số điện thoại.";
+				errorTd.textContent = "電話番号の確認中にエラーが発生しました";
 				errorTd.style.color = "red";
 				errorTd.style.textAlign = "center";
 				tr.appendChild(errorTd);
@@ -1018,14 +1018,14 @@
 			})
 			.then(data => {
 				if (data.status === 'success') {
-					console.log('データが正常に保存されました - Dữ liệu đã được lưu thành công.');
+					console.log('データが正常に保存されました.');
 				} else {
-					alert(`エラーが発生しました - Đã xảy ra lỗi: ${data.message}`);
+					alert(`エラーが発生しました: ${data.message}`);
 				}
 			})
 			.catch(error => {
 				console.error('エラーが発生しました:', error);
-				alert('エラーが発生しました - Đã xảy ra lỗi. Vui lòng thử lại.');
+				alert('エラーが発生しました.');
 			})
 			.finally(() => callback()); // Gọi lại callback sau khi xử lý
 	}
@@ -1054,7 +1054,7 @@
 			// Định nghĩa stopProcessingCallback để dừng quá trình
 			function stopProcessingCallback() {
 				stopProcessing = true; // Khi gọi callback này, quá trình sẽ dừng
-				console.log("Dừng quá trình vì không tìm thấy số điện thoại.");
+				console.log("電話番号が見つからないため、処理を中止しました。");
 			}
 
 			rows.forEach((row, index) => {
@@ -1069,7 +1069,7 @@
 						completedRequests++; // Tăng số lượng hoàn tất
 						if (completedRequests === totalRequests) {
 							// Hiển thị thông báo khi tất cả hoàn tất
-							alert('すべてのデータが正常に保存されました - Tất cả dữ liệu đã được lưu thành công.');
+							alert('すべてのデータが正常に保存されました');
 							document.getElementById('popupContent').style.display = 'none'; // Ẩn popup
 						}
 					}, stopProcessingCallback); // Truyền vào stopProcessingCallback

@@ -275,9 +275,9 @@
 
                 // Kiểm tra trạng thái hợp lệ của số điện thoại và số serial
                 if (isPhoneNumberValid && isSerialNumberValid) {
-                    confirmBtn.disabled = false; // Bật nút xác nhận nếu tất cả số điện thoại và số serial hợp lệ
+                    confirmBtn.disabled = false; // Bật nút 確定 nếu tất cả số điện thoại và số serial hợp lệ
                 } else {
-                    confirmBtn.disabled = true; // Tắt nút xác nhận nếu có số điện thoại hoặc số serial không hợp lệ
+                    confirmBtn.disabled = true; // Tắt nút 確定 nếu có số điện thoại hoặc số serial không hợp lệ
                 }
             };
 
@@ -288,7 +288,7 @@
         }
     });
 
-    // Sự kiện click nút xác nhận
+    // Sự kiện click nút 確定
     confirmBtn.addEventListener("click", () => {
         const rows = [];
         const tableRows = previewTable.getElementsByTagName("tr");
@@ -336,7 +336,7 @@
                     fileInput.value = "";
                     document.getElementById('usernameId').selectedIndex = 0;
 
-                    // Vô hiệu hóa nút xác nhận
+                    // Vô hiệu hóa nút 確定
                     confirmBtn.disabled = true;
                 } else {
                     alert("データの保存に失敗しました: " + data.error); // Thông báo lỗi

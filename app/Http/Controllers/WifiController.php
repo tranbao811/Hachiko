@@ -118,4 +118,20 @@ class WifiController extends Controller
         // Chuyển hướng lại trang với thông báo thành công
         return redirect()->back()->with('success', 'Đăng ký WiFi đã được tạo thành công.');
     }
+
+    public function updateField(Request $request)
+    {
+        // Tìm item theo ID
+        $item = fixed_wifi::find($request->id);
+        if (!$item) {
+            return response()->json(['error' => 'Item not found'], 404);
+        }
+
+        // Cập nhật trường dữ liệu
+        $item->{$request->field} = $request->value;
+        $item->save();
+
+        // Trả về phản hồi thành công
+        return response()->json(['success' => 'Updated successfully']);
+    }
 }

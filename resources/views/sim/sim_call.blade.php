@@ -359,7 +359,7 @@
             </select>
             <br><br>
 
-            <!-- Chọn ngày yêu cầu -->
+            <!-- Chọn 依頼日 -->
             <label for="requestDate">ご依頼の日付：</label>
             <input type="date" id="requestDate" required>
             <br><br>
@@ -373,7 +373,7 @@
                 <table id="csvTable" style="width: 100%; display: block; border-collapse: collapse;">
                     <thead style="background-color: #f8f9fa; display: table; width: 100%; table-layout: fixed;">
                         <tr>
-                            <th class="d-none d-xl-table-cell">Thông tin File CSV</th>
+                            <th class="d-none d-xl-table-cell">CSVファイル情報</th>
                         </tr>
                     </thead>
                     <tbody id="csvTableBody" style="display: block; overflow-y: auto; height: 300px; width: 100%; overflow-x: hidden;">
@@ -929,7 +929,7 @@
         const rowData = JSON.parse(localStorage.getItem('selectedRowData'));
 
         if (!rowData) {
-            alert("Dữ liệu không hợp lệ, vui lòng thử lại!");
+            alert("無効なデータです。もう一度お試しください。");
             closeAllPopups();
             return;
         }
@@ -1029,7 +1029,7 @@
         // Lấy id_sim từ hàng được chọn
         const idSim = localStorage.getItem('selectedRowId');
         if (!idSim) {
-            alert('Không tìm thấy Sim!');
+            alert('SIMが見つかりません。');
             return;
         }
 
@@ -1042,11 +1042,11 @@
         const confirmedAt = ''; // Giá trị mặc định là chuỗi rỗng
 
         if (!selectedRequestName) {
-            alert('Không tìm thấy tên yêu cầu đã chọn!');
+            alert('選択した要求名が見つかりません！');
             return;
         }
         if (!createdAt) {
-            alert('Vui lòng chọn ngày!');
+            alert('日付選択');
             return;
         }
 
@@ -1078,7 +1078,7 @@
             formData.append('created_at', createdAt);
             formData.append('request_name', selectedRequestName);
         } else {
-            alert('Yêu cầu không được hỗ trợ!');
+            alert('リクエストはサポート対象外です！');
             return;
         }
 
@@ -1098,11 +1098,11 @@
             })
             .then(data => {
                 console.log('Thành công:', data);
-                alert('Dữ liệu đã được gửi thành công!');
+                alert('データが正常に送信されました！');
             })
             .catch(error => {
-                console.error('Lỗi:', error);
-                alert(`Gửi dữ liệu thất bại: ${error.message}`);
+                console.error('エラーが発生しました!', error);
+                alert(`データの送信に失敗しました ${error.message}`);
             });
 
         // Đóng popup sau khi gửi
@@ -1129,7 +1129,7 @@
                 $('#group4Count').text(response.group4Count);
             },
             error: function(xhr, status, error) {
-                console.error('Có lỗi khi lấy dữ liệu thống kê:', error);
+                console.error('データの取得中にエラーが発生しました', error);
             }
         });
     }
@@ -1221,7 +1221,7 @@
                     // Nếu không tìm thấy số điện thoại, thêm thông báo lỗi vào bảng
                     const errorTd = document.createElement("td");
                     errorTd.colSpan = tr.children.length; // Đảm bảo thông báo lỗi chiếm toàn bộ chiều rộng bảng
-                    errorTd.textContent = `SIM không tồn tại`;
+                    errorTd.textContent = `SIM無存在`;
                     errorTd.style.color = "red";
                     errorTd.style.textAlign = "center";
                     tr.appendChild(errorTd);
@@ -1234,12 +1234,12 @@
                 tableBody.appendChild(tr);
             })
             .catch(error => {
-                console.error(`Lỗi khi kiểm tra số điện thoại: ${phoneNumber}`, error);
+                console.error(`電話番号の確認中にエラーが発生しました ${phoneNumber}`, error);
 
                 // Thêm thông báo lỗi vào bảng nếu có lỗi trong quá trình kiểm tra
                 const errorTd = document.createElement("td");
                 errorTd.colSpan = tr.children.length; // Đảm bảo thông báo lỗi chiếm toàn bộ chiều rộng bảng
-                errorTd.textContent = "Đã xảy ra lỗi khi kiểm tra số điện thoại.";
+                errorTd.textContent = "電話番号の確認中にエラーが発生しました";
                 errorTd.style.color = "red";
                 errorTd.style.textAlign = "center";
                 tr.appendChild(errorTd);
@@ -1296,13 +1296,13 @@
                     console.log('データが正常に保存されました - Dữ liệu đã được lưu thành công.');
                 } else {
                     // Nếu có lỗi trong dữ liệu trả về, hiển thị thông báo
-                    alert(`エラーが発生しました - Đã xảy ra lỗi: ${data.message || 'Không xác định'}`);
+                    alert(`エラーが発生しました: ${data.message || 'Không xác định'}`);
                 }
             })
             .catch(error => {
                 // Xử lý các lỗi chi tiết hơn
                 console.error('エラーが発生しました:', error);
-                alert(`エラーが発生しました - Đã xảy ra lỗi: ${error.message || 'Vui lòng thử lại sau.'}`);
+                alert(`エラーが発生しました: ${error.message || 'もう一度お試しください。'}`);
             })
             .finally(() => callback()); // Gọi lại callback sau khi xử lý
     }
@@ -1331,7 +1331,7 @@
             // Định nghĩa stopProcessingCallback để dừng quá trình
             function stopProcessingCallback() {
                 stopProcessing = true; // Khi gọi callback này, quá trình sẽ dừng
-                console.log("Dừng quá trình vì không tìm thấy số điện thoại.");
+                console.log("電話番号が見つからないため、処理を中止しました。");
             }
 
             rows.forEach((row, index) => {

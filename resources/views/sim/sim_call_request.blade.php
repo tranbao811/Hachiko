@@ -274,7 +274,7 @@
                 </div>
             </div>
 
-            <h1 class="h3 mb-3" style="text-align: center"><strong>Yêu Cầu Của Khách Hàng</strong></h1>
+            <h1 class="h3 mb-3" style="text-align: center"><strong>顧客依頼</strong></h1>
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <div class="row">
                 <div class="d-flex">
@@ -289,9 +289,9 @@
                                         <thead>
                                             <tr>
                                                 <th>順番</th>
-                                                <th class="d-none d-xl-table-cell">Ngày yêu cầu</th>
-                                                <th class="d-none d-xl-table-cell">Yêu cầu</th>
-                                                <th class="d-none d-xl-table-cell">Người yêu cầu</th>
+                                                <th class="d-none d-xl-table-cell">依頼日</th>
+                                                <th class="d-none d-xl-table-cell">依頼</th>
+                                                <th class="d-none d-xl-table-cell">依頼者</th>
                                                 <th class="d-none d-xl-table-cell">電話番号</th>
                                                 <th class="d-none d-xl-table-cell">プラン名</th>
                                                 <th class="d-none d-xl-table-cell">かけ放題</th>
@@ -321,11 +321,11 @@
                                                 <td class="memo" contenteditable="false" style="max-width: 150px;">{{ $item->memo }}</td>
                                                 <td style="text-align: center;">
                                                     @if($item->confirmed_at)
-                                                    Đã xác nhận
+                                                    確定済み
                                                     @elseif($item->cancelled_at)
-                                                    Đã huỷ bỏ
+                                                    取消済み
                                                     @else
-                                                    Chưa xử lý
+                                                    未操作
                                                     @endif
                                                 </td>
 
@@ -333,23 +333,23 @@
                                                 @if(in_array($adminLevel, [1, 2, 4]) || ($adminLevel == 7 && Auth::user()->id_manager == 2))
                                                 <td style="text-align: center;">
                                                     @if(!$item->confirmed_at && !$item->cancelled_at)
-                                                    <!-- Nút Xác nhận -->
+                                                    <!-- Nút 確定 -->
                                                     <button class="btn btn-sm confirm-btn btn-danger" data-id="{{ $item->id }}">
-                                                        Xác nhận
+                                                        確定
                                                     </button>
-                                                    <!-- Nút Huỷ bỏ -->
+                                                    <!-- Nút 取消 -->
                                                     <button class="btn btn-sm cancel-btn btn-warning" data-id="{{ $item->id }}">
-                                                        Huỷ bỏ
+                                                        取消
                                                     </button>
                                                     @elseif($item->confirmed_at)
-                                                    <!-- Nếu đã xác nhận -->
+                                                    <!-- Nếu 確定済み -->
                                                     <button class="btn btn-sm btn-success" disabled>
-                                                        Đã xác nhận
+                                                        確定済み
                                                     </button>
                                                     @elseif($item->cancelled_at)
-                                                    <!-- Nếu đã huỷ bỏ -->
+                                                    <!-- Nếu 取消済み -->
                                                     <button class="btn btn-sm btn-secondary" disabled>
-                                                        Đã huỷ bỏ
+                                                        取消済み
                                                     </button>
                                                     @endif
                                                 </td>
@@ -369,11 +369,11 @@
 </main>
 
 <script>
-    // Xử lý nút xác nhận
+    // Xử lý nút 確定
     document.querySelectorAll('.confirm-btn').forEach(button => {
         button.addEventListener('click', function() {
             let itemId = this.getAttribute('data-id');
-            if (!this.disabled && confirm('Bạn có chắc chắn muốn xác nhận?')) {
+            if (!this.disabled && confirm('本当に確認してもよろしいですか？')) {
                 fetch(`/confirm-item/${itemId}`, {
                         method: 'POST',
                         headers: {
@@ -388,24 +388,24 @@
                     .then(data => {
                         if (data.success) {
                             let row = this.closest('tr');
-                            row.querySelector('td:nth-child(10)').innerText = 'Đã xác nhận'; // Cập nhật trạng thái
+                            row.querySelector('td:nth-child(10)').innerText = '確定済み'; // Cập nhật trạng thái
                             this.disabled = true;
-                            this.innerText = 'Đã xác nhận';
+                            this.innerText = '確定済み';
                             this.classList.remove('btn-danger');
                             this.classList.add('btn-success');
-                            row.querySelector('.cancel-btn').style.display = 'none'; // Ẩn nút huỷ bỏ
+                            row.querySelector('.cancel-btn').style.display = 'none'; // Ẩn nút 取消
                         }
                     })
-                    .catch(error => console.error('Lỗi:', error));
+                    .catch(error => console.error('エラーが発生しました!', error));
             }
         });
     });
 
-    // Xử lý nút huỷ bỏ
+    // Xử lý nút 取消
     document.querySelectorAll('.cancel-btn').forEach(button => {
         button.addEventListener('click', function() {
             let itemId = this.getAttribute('data-id');
-            if (confirm('Bạn có chắc chắn muốn hủy yêu cầu này?')) {
+            if (confirm('本当に取消してもよろしいですか？')) {
                 fetch(`/cancel-item/${itemId}`, {
                         method: 'POST',
                         headers: {
@@ -420,15 +420,15 @@
                     .then(data => {
                         if (data.success) {
                             let row = this.closest('tr');
-                            row.querySelector('td:nth-child(10)').innerText = 'Đã huỷ bỏ'; // Cập nhật trạng thái
+                            row.querySelector('td:nth-child(10)').innerText = '取消済み'; // Cập nhật trạng thái
                             this.disabled = true;
-                            this.innerText = 'Đã huỷ bỏ';
+                            this.innerText = '取消済み';
                             this.classList.remove('btn-warning');
                             this.classList.add('btn-secondary');
-                            row.querySelector('.confirm-btn').style.display = 'none'; // Ẩn nút xác nhận
+                            row.querySelector('.confirm-btn').style.display = 'none'; // Ẩn nút 確定
                         }
                     })
-                    .catch(error => console.error('Lỗi:', error));
+                    .catch(error => console.error('エラーが発生しました!', error));
             }
         });
     });
@@ -494,14 +494,14 @@
                         .then(data => {
                             if (data.success) {
                                 // Cập nhật giao diện sau khi thay đổi
-                                alert('Đã lưu thay đổi memo');
+                                alert('メモの変更が保存されました。');
                             } else {
-                                alert('Có lỗi xảy ra khi lưu thay đổi');
+                                alert('保存中にエラーが発生しました。');
                             }
                         })
                         .catch(error => {
-                            console.error('Lỗi:', error);
-                            alert('Có lỗi xảy ra khi gửi yêu cầu');
+                            console.error('エラーが発生しました!', error);
+                            alert('送信中にエラーが発生しました。');
                         });
                 }
             });
