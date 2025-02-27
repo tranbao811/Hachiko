@@ -605,8 +605,8 @@
                         <option value="1">Giám đốc</option>
                         <option value="2">Quản lý</option>
                         <option value="3">Kế toán</option>
-                        <option value="4">Thủ tục đăng ký WIFI</option>
-                        <option value="5">Thủ tục đăng ký SIM</option>
+                        <option value="4">Thủ tục đăng ký SIM</option>
+                        <option value="5">Thủ tục đăng ký WIFI</option>
                         <option value="6">Kỹ thuật</option>
                         <option value="7">Đối tác (Người dùng hệ thống)</option>
                         <option value="8">Cộng tác viên đối tác</option>
