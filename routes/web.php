@@ -34,6 +34,9 @@ Route::middleware(['auth:admin'])->group(function (): void {
     Route::get('/wifi_codinh', [WifiController::class, 'wifi_codinh'])->name('wifi.wifi_codinh');
     Route::post('/create_wifi', [WifiController::class, 'create_wifi'])->name('wifi.create_wificodinh');
     Route::post('/update-field', [WifiController::class, 'updateField']);
+    // web.php
+    Route::post('/update-checkbox', [WifiController::class, 'updateCheckbox']);
+
 
     // sim call
     Route::get('/sim_call', [SimController::class, 'sim_call'])->name('sim.sim_call');

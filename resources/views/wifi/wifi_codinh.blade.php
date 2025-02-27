@@ -1,255 +1,269 @@
 @section('css')
 <style>
-/* Đảm bảo bảng có chiều rộng 100% */
-.table {
-    width: 100%;
-    table-layout: auto;
-    border-collapse: collapse;
-}
+    /* Đảm bảo bảng có chiều rộng 100% */
+    .table {
+        width: 100%;
+        table-layout: auto;
+        border-collapse: collapse;
+    }
 
-/* Thiết lập các border cho bảng */
-.table th,
-.table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
+    /* Thiết lập các border cho bảng */
+    .table th,
+    .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
 
-/* Định dạng màu nền cho các cột tiêu đề */
-.table th {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    color: #555;
-}
+    /* Định dạng màu nền cho các cột tiêu đề */
+    .table th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        color: #555;
+    }
 
-/* Cải thiện hiển thị cho các hàng khi di chuột qua */
-.table tr:hover {
-    background-color: #f1f1f1;
-}
+    /* Cải thiện hiển thị cho các hàng khi di chuột qua */
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
 
-/* Cải thiện giao diện của ô tìm kiếm */
-.search-container input {
-    width: 300px;
-    border-radius: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-    font-size: 14px;
-}
+    /* Cải thiện giao diện của ô tìm kiếm */
+    .search-container input {
+        width: 300px;
+        border-radius: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        font-size: 14px;
+    }
 
-/* Cải thiện nút "Đăng ký WIFI" */
-.button_wifi {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    /* Cải thiện nút "Đăng ký WIFI" */
+    .button_wifi {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-.button_wifi:hover {
-    background-color: rgb(3, 40, 209);
-}
-</style>
-<style>
-/* Màn hình nền tối */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    /* Mặc định ẩn */
-}
+    .button_wifi:hover {
+        background-color: rgb(3, 40, 209);
+    }
 
-/* Popup */
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none;
-    /* Mặc định ẩn */
-}
+    /* Màn hình nền tối */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        /* Mặc định ẩn */
+    }
 
+    /* Popup */
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* Mặc định ẩn */
+    }
 
 
-/* Kiểu dáng tổng thể của modal */
-.modal-content {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 1000px;
-}
 
-/* Kiểu dáng cho phần đầu modal */
-.modal-header {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
+    /* Kiểu dáng tổng thể của modal */
+    .modal-content {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 1000px;
+    }
 
-.modal-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
-}
+    /* Kiểu dáng cho phần đầu modal */
+    .modal-header {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
 
-/* Kiểu dáng cho nhãn form */
-.form-label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #444;
-}
+    .modal-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+    }
 
-/* Kiểu dáng cho các trường input */
-.form-control {
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s ease;
-}
+    /* Kiểu dáng cho nhãn form */
+    .form-label {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #444;
+    }
 
-/* Kiểu dáng cho nút bấm */
-.btn {
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 15px;
-    text-transform: uppercase;
-}
+    /* Kiểu dáng cho các trường input */
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s ease;
+    }
 
-.btn-primary {
-    background-color: #00ad0e;
-    border-color: #00ad0e;
-}
+    /* Kiểu dáng cho nút bấm */
+    .btn {
+        font-weight: 600;
+        padding: 10px 15px;
+        border-radius: 15px;
+        text-transform: uppercase;
+    }
 
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
+    .btn-primary {
+        background-color: #00ad0e;
+        border-color: #00ad0e;
+    }
 
-.btn-primary:hover {
-    background-color: #009e0a;
-    border-color: #009e0a;
-}
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
 
-.btn-danger:hover {
-    background-color: #c82333;
-    border-color: #c82333;
-}
+    .btn-primary:hover {
+        background-color: #009e0a;
+        border-color: #009e0a;
+    }
 
-/* Hiệu ứng khi focus vào trường input */
-.form-control:focus {
-    border-color: rgb(207, 0, 0);
-    box-shadow: 0 0 5px rgb(173, 0, 0);
-}
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #c82333;
+    }
 
-/* Kiểu dáng cho bố cục */
-.row {
-    margin-bottom: 15px;
-}
+    /* Hiệu ứng khi focus vào trường input */
+    .form-control:focus {
+        border-color: rgb(207, 0, 0);
+        box-shadow: 0 0 5px rgb(173, 0, 0);
+    }
 
-.col-md-6 {
-    padding-right: 15px;
-    padding-left: 15px;
-}
+    /* Kiểu dáng cho bố cục */
+    .row {
+        margin-bottom: 15px;
+    }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-}
+    .col-md-6 {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 
-.button-container button {
-    width: 130px;
-}
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+    }
 
-/* Đảm bảo modal luôn nằm giữa màn hình */
-.modal-dialog {
-    max-width: 1400px;
-    /* Kích thước tối đa của modal */
-    width: 100%;
-}
+    .button-container button {
+        width: 130px;
+    }
 
-.modal-dialog-centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    /* Đảm bảo modal luôn nằm giữa màn hình */
+    .modal-dialog {
+        max-width: 1400px;
+        /* Kích thước tối đa của modal */
+        width: 100%;
+    }
 
-/* Định dạng nội dung bên trong modal */
-.modal-content {
-    border-radius: 15px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin: auto;
-    border-radius: 1.3rem;
-}
+    .modal-dialog-centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-select {
-    padding: 8px 20px;
-    /* Tạo khoảng cách cho các mục */
-    border-radius: 8px;
-    /* Bo tròn các góc */
-    border: 2px solid #ccc;
-    /* Đường viền nhẹ */
-    font-size: 14px;
-    /* Kích thước font */
-    background-color: #f9f9f9;
-    /* Màu nền cho dropdown */
-    appearance: none;
-    /* Xóa kiểu mặc định của dropdown */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 100%;
-}
+    /* Định dạng nội dung bên trong modal */
+    .modal-content {
+        border-radius: 15px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        margin: auto;
+        border-radius: 1.3rem;
+    }
 
-select:focus {
-    border-color: #007BFF;
-    /* Màu viền khi có focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    /* Hiệu ứng đổ bóng khi focus */
-}
+    select {
+        padding: 8px 20px;
+        /* Tạo khoảng cách cho các mục */
+        border-radius: 8px;
+        /* Bo tròn các góc */
+        border: 2px solid #ccc;
+        /* Đường viền nhẹ */
+        font-size: 14px;
+        /* Kích thước font */
+        background-color: #f9f9f9;
+        /* Màu nền cho dropdown */
+        appearance: none;
+        /* Xóa kiểu mặc định của dropdown */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 100%;
+    }
 
-option {
-    padding: 10px;
-    /* Tạo khoảng cách cho các mục trong dropdown */
-    font-size: 14px;
-    /* Kích thước font */
-    border-radius: 5px;
-    /* Bo góc các mục */
-}
+    select:focus {
+        border-color: #007BFF;
+        /* Màu viền khi có focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        /* Hiệu ứng đổ bóng khi focus */
+    }
 
-/* Hiệu ứng khi di chuột qua từng mục */
-option:hover {
-    background-color: #f0f0f0;
-    /* Màu nền khi di chuột qua */
-}
+    option {
+        padding: 10px;
+        /* Tạo khoảng cách cho các mục trong dropdown */
+        font-size: 14px;
+        /* Kích thước font */
+        border-radius: 5px;
+        /* Bo góc các mục */
+    }
 
-/* Thêm hiệu ứng hover cho từng màu sắc */
-option[value="戻入"]:hover {
-    background-color: darkred;
-    /* Màu nền khi hover vào "戻入" */
-}
+    /* Hiệu ứng khi di chuột qua từng mục */
+    option:hover {
+        background-color: #f0f0f0;
+        /* Màu nền khi di chuột qua */
+    }
 
-option[value="獲得"]:hover {
-    background-color: darkgreen;
-    /* Màu nền khi hover vào "獲得" */
-}
+    /* Thêm hiệu ứng hover cho từng màu sắc */
+    option[value="戻入"]:hover {
+        background-color: darkred;
+        /* Màu nền khi hover vào "戻入" */
+    }
 
-option[value="未定"]:hover {
-    background-color: #ccc;
-    /* Màu nền khi hover vào "未定" */
-}
+    option[value="獲得"]:hover {
+        background-color: darkgreen;
+        /* Màu nền khi hover vào "獲得" */
+    }
+
+    option[value="未定"]:hover {
+        background-color: #ccc;
+        /* Màu nền khi hover vào "未定" */
+    }
+
+    .payment-status-select {
+        padding: 3px 15px;
+        border-radius: 15px;
+        border: 1px solid #ffffff;
+        font-size: 14px;
+        width: auto;
+        color: red;
+        /* Áp dụng màu chữ đỏ cho toàn bộ select */
+    }
+
+    .payment-status-select option {
+        color: red;
+        /* Áp dụng màu chữ đỏ cho từng option */
+    }
 </style>
 @endsection
 @extends('layouts.app')
@@ -270,6 +284,7 @@ option[value="未定"]:hover {
 </div>
 @endif
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="user-level" content="{{ auth()->user()->level }}">
 <main class="content" style="padding-top: 30px;">
     <div class="container-fluid p-0">
         <div class="row">
@@ -315,7 +330,7 @@ option[value="未定"]:hover {
                                             @php
                                             $userLevel = auth()->user()->level;
                                             @endphp
-                                            @if(in_array($userLevel, [1, 2, 3, 4, 5]))
+                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(238, 255, 0) !important; font-weight: bold;">
                                                 キャリア確定</th>
@@ -328,11 +343,7 @@ option[value="未定"]:hover {
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(238, 255, 0) !important; font-weight: bold;">
                                                 備考欄</th>
-                                            @endif
-                                            <!-- Các cột khác luôn hiển thị -->
-                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
                                             <th class="d-none d-xl-table-cell">クルーコード</th>
-                                            @endif
                                             <th class="d-none d-xl-table-cell">担当者名</th>
                                             <th class="d-none d-xl-table-cell">手数料金額</th>
                                             <th class="d-none d-xl-table-cell"
@@ -344,6 +355,7 @@ option[value="未定"]:hover {
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(90, 222, 255) !important; font-weight: bold;">
                                                 受取状態時点</th>
+                                            @endif
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(0, 255, 21) !important; font-weight: bold;">
                                                 販売先</th>
@@ -353,11 +365,13 @@ option[value="未定"]:hover {
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(0, 255, 21) !important; font-weight: bold;">
                                                 Facebook</th>
+                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
                                             <th class="d-none d-xl-table-cell">Hồ sơ</th>
                                             <th class="d-none d-xl-table-cell">SIM</th>
                                             <th class="d-none d-xl-table-cell">Cục phát</th>
                                             <th class="d-none d-xl-table-cell">Tình trạng gửi đơn</th>
                                             <th class="d-none d-xl-table-cell">Tình trạng cuộc gọi xác nhận</th>
+                                            @endif
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(0, 255, 21) !important; font-weight: bold;">
                                                 申込日</th>
@@ -418,10 +432,12 @@ option[value="未定"]:hover {
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(0, 255, 21) !important; font-weight: bold;">
                                                 キャンペーン</th>
+                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
                                             <th class="d-none d-xl-table-cell">Tình trạng Entry</th>
                                             <th class="d-none d-xl-table-cell">Trình trạng lắp đặt</th>
                                             <th class="d-none d-xl-table-cell">工事タイプ</th>
                                             <th class="d-none d-xl-table-cell">工事日（NURO光の場合、自宅工事）</th>
+                                            @endif
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(255, 0, 221) !important; font-weight: bold;">
                                                 開通日（NURO光の場合、外工事）</th>
@@ -447,7 +463,6 @@ option[value="未定"]:hover {
                                             <th class="d-none d-xl-table-cell">在留番号</th>
                                             <th class="d-none d-xl-table-cell">資格状況</th>
                                             <th class="d-none d-xl-table-cell">在留カード共有先</th>
-                                            @endif
                                             <th class="d-none d-xl-table-cell">備考欄</th>
                                             <th class="d-none d-xl-table-cell">処理状況記入欄</th>
                                             <th class="d-none d-xl-table-cell">状態欄</th>
@@ -455,6 +470,7 @@ option[value="未定"]:hover {
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(90, 222, 255) !important; font-weight: bold;">
                                                 確認欄</th>
+                                            @endif
                                             <th class="d-none d-xl-table-cell"
                                                 style="background-color: rgb(255, 0, 221) !important; font-weight: bold;">
                                                 ログインURL</th>
@@ -505,178 +521,448 @@ option[value="未定"]:hover {
                                             @php
                                             $userLevel = auth()->user()->level;
                                             @endphp
-                                            @if(in_array($userLevel, [1, 2, 3, 4, 5]))
+                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
+                                            @if(in_array($userLevel, [1, 2, 3]))
+                                            <!-- Cấp độ 1, 2, 3 có thể chỉnh sửa -->
                                             <td>
                                                 <input type="checkbox"
                                                     {{ $item->career_confirmed == 1 ? 'checked' : '' }}
-                                                    name="career_confirmed[{{ $item->id }}]">
+                                                    onchange="updateCheckbox({{ $item->id }}, 'career_confirmed', this.checked)">
                                             </td>
                                             <td>
-                                                <select
-                                                    style="padding: 5px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; width: 60px;">
+                                                <select name="payment_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: 60px;"
+                                                    id="payment-status-{{ $item->id }}" onchange="changeBackgroundColor(this)">
                                                     <option value="戻入" style="background-color: red; color: white;"
-                                                        {{ $item->payment_status == '戻入' ? 'selected' : '' }}>戻入
-                                                    </option>
-                                                    <option value="獲得" style="background-color: green; color: white;"
-                                                        {{ $item->payment_status == '獲得' ? 'selected' : '' }}>獲得
-                                                    </option>
-                                                    <option value="未定"
-                                                        style="background-color: lightgray; color: black;"
-                                                        {{ $item->payment_status == '未定' ? 'selected' : '' }}>未定
-                                                    </option>
+                                                        {{ $item->payment_status == '戻入' ? 'selected' : '' }}>戻入</option>
+                                                    <option value="獲得" style="background-color: #008f00; color: white;"
+                                                        {{ $item->payment_status == '獲得' ? 'selected' : '' }}>獲得</option>
+                                                    <option value="未定" style="background-color: lightgray; color: black;"
+                                                        {{ $item->payment_status == '未定' ? 'selected' : '' }}>未定</option>
                                                 </select>
                                             </td>
+                                            <td class="application_number" contenteditable="true" style="max-width: 150px;">{{ $item->application_number }}</td>
+                                            <td class="remarks" contenteditable="true" style="max-width: 150px;">{{ $item->remarks }}</td>
+                                            @elseif(in_array($userLevel, [4, 5, 6]))
+                                            <!-- Cấp độ 4, 5 chỉ có thể xem -->
+                                            <td>
+                                                <input type="checkbox" {{ $item->career_confirmed == 1 ? 'checked' : '' }} readonly>
+                                            </td>
+                                            <!-- <td class="payment_status" style="padding: 5px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; width: 60px;" >
+                                                {{ $item->payment_status }}
+                                            </td> -->
+                                            <td>
+                                                <select name="payment_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;"
+                                                    id="payment-status-{{ $item->id }}">
+                                                    <option value="戻入" style="background-color: red; color: white;"
+                                                        {{ $item->payment_status == '戻入' ? 'selected' : '' }}>戻入</option>
+                                                    <option value="獲得" style="background-color: #008f00; color: white;"
+                                                        {{ $item->payment_status == '獲得' ? 'selected' : '' }}>獲得</option>
+                                                    <option value="未定" style="background-color: lightgray; color: black;"
+                                                        {{ $item->payment_status == '未定' ? 'selected' : '' }}>未定</option>
+                                                </select>
+                                            </td>
+                                            <td class="application_number" contenteditable="false" style="max-width: 150px;">{{ $item->application_number }}</td>
+                                            <td class="remarks" contenteditable="false" style="max-width: 150px;">{{ $item->remarks }}</td>
+                                            @else
                                             <td class="application_number" contenteditable="false"
                                                 style="max-width: 150px;">{{ $item->application_number }}</td>
                                             <td class="remarks" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->remarks }}</td>
+                                                {{ $item->remarks }}
+                                            </td>
                                             @endif
-                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
                                             <td class="crew_code" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->crew_code }}</td>
-                                            @endif
+                                                {{ $item->crew_code }}
+                                            </td>
                                             <td class="person_in_charge" contenteditable="false"
                                                 style="max-width: 150px;">{{ $item->person_in_charge }}</td>
                                             <td class="fee_amount" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->fee_amount }}</td>
-                                            <td class="payment_status_detail" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->payment_status_detail }}</td>
-                                            <td class="fiscal_year" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->fiscal_year }}</td>
-                                            <td class="receipt_status_at_time" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->receipt_status_at_time }}</td>
-                                            <td class="sales_destination" contenteditable="false"
+                                                {{ $item->fee_amount }}
+                                            </td>
+                                            <td>
+                                                <select name="payment_status_detail[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;" onchange="changeBackgroundColor(this)">
+                                                    <option value="支払済" style="background-color: #008f00; color: white;"
+                                                        {{ $item->payment_status_detail == '支払済' ? 'selected' : '' }}>支払済</option>
+                                                    <option value="確定中" style="background-color:rgb(211, 214, 0); color: black;"
+                                                        {{ $item->payment_status_detail == '確定中' ? 'selected' : '' }}>確定中</option>
+                                                    <option value="戻入済" style="background-color: red; color: white;"
+                                                        {{ $item->payment_status_detail == '戻入済' ? 'selected' : '' }}>戻入済</option>
+                                                    <option value="不備等" style="background-color: lightgray; color: black;"
+                                                        {{ $item->payment_status_detail == '不備等' ? 'selected' : '' }}>不備等</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="fiscal_year[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ccc; font-size: 14px; width: auto;">
+                                                    <option value="" {{ is_null($item->fiscal_year) ? 'selected' : '' }}></option> <!-- Tùy chọn rỗng -->
+                                                    @for ($year = 2023; $year <= 2030; $year++)
+                                                        <option value="{{ $year }}"
+                                                        {{ $item->fiscal_year == $year ? 'selected' : '' }}>{{ $year }}</option>
+                                                        @endfor
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="receipt_status_at_time[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ccc; font-size: 14px; width: auto; text-align: center;">
+                                                    <option value="" {{ empty($item->receipt_status_at_time) ? 'selected' : '' }}></option> <!-- Tùy chọn trống -->
+                                                    @foreach (['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'] as $month)
+                                                    <option value="{{ $month }}" {{ $item->receipt_status_at_time == $month ? 'selected' : '' }}>
+                                                        {{ $month }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </td>
+                                            @endif
+                                            <td class="sales_destination"
                                                 style="max-width: 150px;">{{ $item->sales_destination }}</td>
-                                            <td class="full_name" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->full_name }}</td>
-                                            <td class="facebook_url" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->facebook_url }}</td>
-                                            <td class="profile" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->profile }}</td>
-                                            <td class="sim" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->sim }}</td>
-                                            <td class="router" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->router }}</td>
-                                            <td class="application_status" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->application_status }}</td>
-                                            <td class="confirmation_call_status" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->confirmation_call_status }}</td>
-                                            <td class="application_date" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->application_date }}</td>
-                                            <td class="application_details" contenteditable="false"
+                                            <td class="full_name" style="max-width: 150px;">
+                                                {{ $item->full_name }}
+                                            </td>
+                                            <td class="facebook_url" style="max-width: 150px;">
+                                                {{ $item->facebook_url }}
+                                            </td>
+                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
+                                            <td>
+                                                <select name="profile[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->profile == '' ? 'selected' : '' }}></option>
+                                                    <option value="無し" {{ $item->profile == '無し' ? 'selected' : '' }}>無し</option>
+                                                    <option value="有り" {{ $item->profile == '有り' ? 'selected' : '' }}>有り</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="sim[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->sim == '' ? 'selected' : '' }}></option>
+                                                    <option value="無し" {{ $item->sim == '無し' ? 'selected' : '' }}>無し</option>
+                                                    <option value="有り" {{ $item->sim == '有り' ? 'selected' : '' }}>有り</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="router[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->router == '' ? 'selected' : '' }}></option>
+                                                    <option value="無し" {{ $item->router == '無し' ? 'selected' : '' }}>無し</option>
+                                                    <option value="有り" {{ $item->router == '有り' ? 'selected' : '' }}>有り</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="application_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->application_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="完了" {{ $item->application_status == '完了' ? 'selected' : '' }}>完了</option>
+                                                    <option value="未完了" {{ $item->application_status == '未完了' ? 'selected' : '' }}>未完了</option>
+                                                    <option value="不要" {{ $item->application_status == '不要' ? 'selected' : '' }}>不要</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="confirmation_call_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->confirmation_call_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="完了" {{ $item->confirmation_call_status == '完了' ? 'selected' : '' }}>完了</option>
+                                                    <option value="未完了" {{ $item->confirmation_call_status == '未完了' ? 'selected' : '' }}>未完了</option>
+                                                    <option value="不要" {{ $item->confirmation_call_status == '不要' ? 'selected' : '' }}>不要</option>
+                                                </select>
+                                            </td>
+                                            @endif
+                                            <td class="application_date" style="max-width: 150px;">
+                                                {{ \Carbon\Carbon::parse($item->application_date)->format('Y/m/d') }}
+                                            </td>
+                                            <td class="application_details"
                                                 style="max-width: 150px;">{{ $item->application_details }}</td>
-                                            <td class="application_type" contenteditable="false"
+                                            <td class="application_type"
                                                 style="max-width: 150px;">{{ $item->application_type }}</td>
-                                            <td class="contractor_name_kanji" contenteditable="false"
+                                            <td class="contractor_name_kanji"
                                                 style="max-width: 150px;">{{ $item->contractor_name_kanji }}</td>
-                                            <td class="contractor_name_kana" contenteditable="false"
+                                            <td class="contractor_name_kana"
                                                 style="max-width: 150px;">{{ $item->contractor_name_kana }}</td>
-                                            <td class="applicant_gender" contenteditable="false"
+                                            <td class="applicant_gender"
                                                 style="max-width: 150px;">{{ $item->applicant_gender }}</td>
-                                            <td class="applicant_birthdate" contenteditable="false"
+                                            <td class="applicant_birthdate"
                                                 style="max-width: 150px;">{{ $item->applicant_birthdate }}</td>
-                                            <td class="contact_number" contenteditable="false"
+                                            <td class="contact_number"
                                                 style="max-width: 150px;">{{ $item->contact_number }}</td>
                                             @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
-                                            <td class="post_confirmation_person" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->post_confirmation_person }}</td>
+                                            <td>
+                                                <select name="post_confirmation_person[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->post_confirmation_person == '' ? 'selected' : '' }}></option>
+                                                    <option value="社長" {{ $item->post_confirmation_person == '社長' ? 'selected' : '' }}>社長</option>
+                                                    <option value="ビ" {{ $item->post_confirmation_person == 'ビ' ? 'selected' : '' }}>ビ</option>
+                                                    <option value="ホアイ" {{ $item->post_confirmation_person == 'ホアイ' ? 'selected' : '' }}>ホアイ</option>
+                                                    <option value="クァン" {{ $item->post_confirmation_person == 'クァン' ? 'selected' : '' }}>クァン</option>
+                                                    <option value="コア" {{ $item->post_confirmation_person == 'コア' ? 'selected' : '' }}>コア</option>
+                                                    <option value="チョン" {{ $item->post_confirmation_person == 'チョン' ? 'selected' : '' }}>チョン</option>
+                                                    <option value="トゥイ" {{ $item->post_confirmation_person == 'トゥイ' ? 'selected' : '' }}>トゥイ</option>
+                                                    <option value="不明" {{ $item->post_confirmation_person == '不明' ? 'selected' : '' }}>有り</option>
+                                                </select>
+                                            </td>
                                             @endif
-                                            <td class="post_confirmation_time" contenteditable="false"
+                                            <td class="post_confirmation_time"
                                                 style="max-width: 150px;">{{ $item->post_confirmation_time }}</td>
-                                            <td class="email" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->email }}</td>
-                                            <td class="nationality" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->nationality }}</td>
-                                            <td class="postal_code" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->postal_code }}</td>
-                                            <td class="address" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->address }}</td>
-                                            <td class="estimated_households_count" contenteditable="false"
+                                            <td class="email" style="max-width: 150px;">
+                                                {{ $item->email }}
+                                            </td>
+                                            <td class="nationality" style="max-width: 150px;">
+                                                {{ $item->nationality }}
+                                            </td>
+                                            <td class="postal_code" style="max-width: 150px;">
+                                                {{ $item->postal_code }}
+                                            </td>
+                                            <td class="address" style="max-width: 150px;">
+                                                {{ $item->address }}
+                                            </td>
+                                            <td class="estimated_households_count"
                                                 style="max-width: 150px;">{{ $item->estimated_households_count }}</td>
-                                            <td class="payment_method" contenteditable="false"
+                                            <td class="payment_method"
                                                 style="max-width: 150px;">{{ $item->payment_method }}</td>
-                                            <td class="pre_installation_rental" contenteditable="false"
+                                            <td class="pre_installation_rental"
                                                 style="max-width: 150px;">{{ $item->pre_installation_rental }}</td>
-                                            <td class="construction_request_date" contenteditable="false"
+                                            <td class="construction_request_date"
                                                 style="max-width: 150px;">{{ $item->construction_request_date }}</td>
-                                            <td class="construction_payment_installments" contenteditable="false"
+                                            <td class="construction_payment_installments"
                                                 style="max-width: 150px;">{{ $item->construction_payment_installments }}
                                             </td>
-                                            <td class="campaign" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->campaign }}</td>
-                                            <td class="entry_status" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->entry_status }}</td>
-                                            <td class="installation_status" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->installation_status }}</td>
-                                            <td class="construction_type" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->construction_type }}</td>
+                                            <td class="campaign"
+                                                style="max-width: 150px;">{{ $item->campaign }}
+                                            </td>
+                                            @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
+                                            <td>
+                                                <select name="entry_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->entry_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="エントリー済み" style="background-color: #008f00; color: white;"
+                                                        {{ $item->entry_status == 'エントリー済み' ? 'selected' : '' }} onchange="changeBackgroundColor(this)">エントリー済み</option>
+                                                    <option value="エントリー待ち" {{ $item->entry_status == 'エントリー待ち' ? 'selected' : '' }}>エントリー待ち</option>
+                                                    <option value="口座登録待ち" {{ $item->entry_status == '口座登録待ち' ? 'selected' : '' }}>口座登録待ち</option>
+                                                    <option value="後確待ち" {{ $item->entry_status == '後確待ち' ? 'selected' : '' }}>後確待ち</option>
+                                                    <option value="営業対応中" {{ $item->entry_status == '営業対応中' ? 'selected' : '' }}>営業対応中</option>
+                                                    <option value="キャンセル" {{ $item->entry_status == 'キャンセル' ? 'selected' : '' }}>キャンセル</option>
+                                                    <option value="普段解約" {{ $item->entry_status == '普段解約' ? 'selected' : '' }}>普段解約</option>
+                                                    <option value="トゥイ" {{ $item->entry_status == '短期・強制解約短期・強制解約' ? 'selected' : '' }}>短期・強制解約</option>
+                                                    <option value="書類不備" {{ $item->entry_status == '書類不備' ? 'selected' : '' }}>書類不備</option>
+                                                    <option value="エリア外" {{ $item->entry_status == 'エリア外' ? 'selected' : '' }}>エリア外</option>
+                                                    <option value="回線あり" {{ $item->entry_status == '回線あり' ? 'selected' : '' }}>回線あり</option>
+                                                    <option value="NTT調査" {{ $item->entry_status == 'NTT調査' ? 'selected' : '' }}>NTT調査</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="installation_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->installation_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="工事完了" style="background-color: #008f00; color: white;"
+                                                        {{ $item->installation_status == '工事完了' ? 'selected' : '' }} onchange="changeBackgroundColor(this)">工事完了</option>
+                                                    <option value="工事待ち" {{ $item->installation_status == '工事待ち' ? 'selected' : '' }}>工事待ち</option>
+                                                    <option value="口座登録待ち" {{ $item->installation_status == '口座登録待ち' ? 'selected' : '' }}>口座登録待ち</option>
+                                                    <option value="工事未定" {{ $item->installation_status == '工事未定' ? 'selected' : '' }}>工事未定</option>
+                                                    <option value="申込終了" {{ $item->installation_status == '申込終了' ? 'selected' : '' }}>申込終了</option>
+                                                    <option value="確認待ち" {{ $item->installation_status == '確認待ち' ? 'selected' : '' }}>確認待ち</option>
+                                                    <option value="開通確認" {{ $item->installation_status == '開通確認' ? 'selected' : '' }}>開通確認</option>
+                                                    <option value="中断" {{ $item->installation_status == '中断' ? 'selected' : '' }}>中断</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="construction_type[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->construction_type == '' ? 'selected' : '' }}></option>
+                                                    <option value="立会必要" {{ $item->construction_type == '立会必要' ? 'selected' : '' }}>立会必要</option>
+                                                    <option value="立会不要" {{ $item->construction_type == '立会不要' ? 'selected' : '' }}>立会不要</option>
+                                                    <option value="不明" {{ $item->construction_type == '不明' ? 'selected' : '' }}>不明</option>
+                                                </select>
+                                            </td>
                                             <td class="construction_date" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->construction_date }}</td>
+                                                style="max-width: 150px;">{{ $item->construction_date }}
+                                            </td>
+                                            @endif
                                             <td class="opening_date" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->opening_date }}</td>
+                                                {{ $item->opening_date }}
+                                            </td>
                                             <td class="month_number" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->month_number }}</td>
-                                            <td class="fiscal_year_again" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->fiscal_year_again }}</td>
-                                            <td class="tp_link" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->tp_link }}</td>
+                                                {{ $item->month_number }}
+                                            </td>
+                                            <td>
+                                                <select name="fiscal_year_again[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->fiscal_year_again == '' ? 'selected' : '' }}></option>
+                                                    <option value="2023年度" {{ $item->fiscal_year_again == '2023年度' ? 'selected' : '' }}>2023年度</option>
+                                                    <option value="2024年度" {{ $item->fiscal_year_again == '2024年度' ? 'selected' : '' }}>2024年度</option>
+                                                    <option value="2025年度" {{ $item->fiscal_year_again == '2025年度' ? 'selected' : '' }}>2025年度</option>
+                                                    <option value="2026年度" {{ $item->fiscal_year_again == '2026年度' ? 'selected' : '' }}>2026年度</option>
+                                                    <option value="2027年度" {{ $item->fiscal_year_again == '2027年度' ? 'selected' : '' }}>2027年度</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="tp_link[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->tp_link == '' ? 'selected' : '' }}></option>
+                                                    <option value="必要" {{ $item->tp_link == '必要' ? 'selected' : '' }}>必要</option>
+                                                    <option value="不要" {{ $item->tp_link == '不要' ? 'selected' : '' }}>不要</option>
+                                                    <option value="受取済み" {{ $item->tp_link == '受取済み' ? 'selected' : '' }}>受取済み</option>
+                                                    <option value="未注文" {{ $item->tp_link == '未注文' ? 'selected' : '' }}>未注文</option>
+                                                    <option value="確認待ち" {{ $item->tp_link == '確認待ち' ? 'selected' : '' }}>確認待ち</option>
+                                                    <option value="注文完了" {{ $item->tp_link == '注文完了' ? 'selected' : '' }}>注文完了</option>
+                                                </select>
+                                            </td>
                                             <td class="registration_url" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->registration_url }}</td>
-                                            <td class="registration_status" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->registration_status }}</td>
-                                            <td class="account_registration_status" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->account_registration_status }}</td>
+                                                style="max-width: 150px;">{{ $item->registration_url }}
+                                            </td>
+                                            <td>
+                                                <select name="registration_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->registration_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="完了" {{ $item->registration_status == '完了' ? 'selected' : '' }}>完了</option>
+                                                    <option value="未完了" {{ $item->registration_status == '未完了' ? 'selected' : '' }}>未完了</option>
+                                                    <option value="不要" {{ $item->registration_status == '不要' ? 'selected' : '' }}>不要</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="account_registration_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->account_registration_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="完了" {{ $item->account_registration_status == '完了' ? 'selected' : '' }}>完了</option>
+                                                    <option value="未完了" {{ $item->account_registration_status == '未完了' ? 'selected' : '' }}>未完了</option>
+                                                    <option value="不要" {{ $item->account_registration_status == '不要' ? 'selected' : '' }}>不要</option>
+                                                </select>
+                                            </td>
                                             @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
                                             <td class="residence_card_number" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->residence_card_number }}</td>
-                                            <td class="qualification_status" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->qualification_status }}</td>
+                                                style="max-width: 150px;">{{ $item->residence_card_number }}
+                                            </td>
+                                            <td>
+                                                <select name="qualification_status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;" onchange="changeBackgroundColor(this)">
+                                                    <option value="" {{ $item->qualification_status == '' ? 'selected' : '' }}></option>
+                                                    <option value="不能" style="background-color:rgb(143, 0, 0); color: white;"
+                                                        {{ $item->qualification_status == '不能' ? 'selected' : '' }}>不能</option>
+                                                    <option value="可能" style="background-color: #008f00; color: white;"
+                                                        {{ $item->qualification_status == '可能' ? 'selected' : '' }}>可能</option>
+                                                </select>
+                                            </td>
                                             <td>
                                                 <input type="checkbox"
                                                     {{ $item->residence_card_shared_with == 1 ? 'checked' : '' }}
-                                                    disabled>
+                                                    onchange="updateCheckbox({{ $item->id }}, 'residence_card_shared_with', this.checked)">
                                             </td>
                                             <td class="remarks_detail" contenteditable="false"
                                                 style="max-width: 150px;">{{ $item->remarks_detail }}</td>
-                                            @endif
+
                                             <td class="processing_status" contenteditable="false"
                                                 style="max-width: 150px;">{{ $item->processing_status }}</td>
-                                            <td class="status" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->status }}</td>
-                                            <td class="month_number_again" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->month_number_again }}</td>
-                                            <td class="confirmation_field" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->confirmation_field }}</td>
+                                            <td>
+                                                <select name="status[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;" onchange="changeBackgroundColor(this)">
+                                                    <option value="" {{ $item->status == '' ? 'selected' : '' }}></option>
+                                                    <option value="解決済み" style="background-color:rgb(0, 143, 19); color: white;"
+                                                        {{ $item->status == '解決済み' ? 'selected' : '' }}>解決済み</option>
+                                                    <option value="未解決" style="background-color:rgb(216, 216, 216); color: black;"
+                                                        {{ $item->status == '未解決' ? 'selected' : '' }}>未解決</option>
+                                                    <option value="解決待ち" style="background-color:rgb(219, 223, 0); color: black;"
+                                                        {{ $item->status == '解決待ち' ? 'selected' : '' }}>解決待ち</option>
+                                                    <option value="キャンセル" style="background-color:rgb(143, 86, 0); color: white;"
+                                                        {{ $item->status == 'キャンセル' ? 'selected' : '' }}>キャンセル</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="month_number_again[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;">
+                                                    <option value="" {{ $item->month_number_again == '' ? 'selected' : '' }}>
+                                                    </option>
+                                                    @for ($i = 1; $i <= 12; $i++)
+                                                        <option value="{{ $i }}月" {{ $item->month_number_again == $i.'月' ? 'selected' : '' }}>
+                                                        {{ $i }}月
+                                                        </option>
+                                                        @endfor
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <select name="confirmation_field[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;" onchange="changeBackgroundColor(this)">
+                                                    <option value="" {{ $item->confirmation_field == '' ? 'selected' : '' }}></option>
+                                                    <option value="確認済み" style="background-color:rgb(0, 143, 19); color: white;"
+                                                        {{ $item->confirmation_field == '確認済み' ? 'selected' : '' }}>確認済み</option>
+                                                    <option value="未確認" style="background-color:rgb(216, 216, 216); color: black;"
+                                                        {{ $item->confirmation_field == '未確認' ? 'selected' : '' }}>未確認</option>
+                                                    <option value="再度実施" style="background-color:rgb(219, 223, 0); color: black;"
+                                                        {{ $item->confirmation_field == '再度実施' ? 'selected' : '' }}>再度実施</option>
+                                                    <option value="キャンセル" style="background-color:rgb(143, 86, 0); color: white;"
+                                                        {{ $item->confirmation_field == 'キャンセル' ? 'selected' : '' }}>キャンセル</option>
+                                                </select>
+                                            </td>
+                                            @endif
                                             <td class="login_url" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->login_url }}</td>
+                                                {{ $item->login_url }}
+                                            </td>
                                             <td class="mypage_id" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->mypage_id }}</td>
+                                                {{ $item->mypage_id }}
+                                            </td>
                                             <td class="password" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->password }}</td>
-                                            <td class="payment_confirmation_status_1" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->payment_confirmation_status_1 }}
+                                                {{ $item->password }}
                                             </td>
-                                            <td class="payment_confirmation_status_2" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->payment_confirmation_status_2 }}
+                                            <td>
+                                                <select class="payment-status-select" name="payment_confirmation_status_1[{{ $item->id }}]">
+                                                    <option value="" {{ $item->payment_confirmation_status_1 == '' ? 'selected' : '' }}></option>
+                                                    <option value="確認済み" {{ $item->payment_confirmation_status_1 == '確認済み' ? 'selected' : '' }}>確認済み</option>
+                                                    <option value="未払い" {{ $item->payment_confirmation_status_1 == '未払い' ? 'selected' : '' }}>未払い</option>
+                                                    <option value="未確認" {{ $item->payment_confirmation_status_1 == '未確認' ? 'selected' : '' }}>未確認</option>
+                                                    <option value="未反映" {{ $item->payment_confirmation_status_1 == '未反映' ? 'selected' : '' }}>未反映</option>
+                                                </select>
                                             </td>
-                                            <td class="payment_confirmation_status_3" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->payment_confirmation_status_3 }}
+
+                                            <td>
+                                                <select class="payment-status-select" name="payment_confirmation_status_2[{{ $item->id }}]">
+                                                    <option value="" {{ $item->payment_confirmation_status_2 == '' ? 'selected' : '' }}></option>
+                                                    <option value="確認済み" {{ $item->payment_confirmation_status_2 == '確認済み' ? 'selected' : '' }}>確認済み</option>
+                                                    <option value="未払い" {{ $item->payment_confirmation_status_2 == '未払い' ? 'selected' : '' }}>未払い</option>
+                                                    <option value="未確認" {{ $item->payment_confirmation_status_2 == '未確認' ? 'selected' : '' }}>未確認</option>
+                                                    <option value="未反映" {{ $item->payment_confirmation_status_2 == '未反映' ? 'selected' : '' }}>未反映</option>
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <select class="payment-status-select" name="payment_confirmation_status_3[{{ $item->id }}]">
+                                                    <option value="" {{ $item->payment_confirmation_status_3 == '' ? 'selected' : '' }}></option>
+                                                    <option value="確認済み" {{ $item->payment_confirmation_status_3 == '確認済み' ? 'selected' : '' }}>確認済み</option>
+                                                    <option value="未払い" {{ $item->payment_confirmation_status_3 == '未払い' ? 'selected' : '' }}>未払い</option>
+                                                    <option value="未確認" {{ $item->payment_confirmation_status_3 == '未確認' ? 'selected' : '' }}>未確認</option>
+                                                    <option value="未反映" {{ $item->payment_confirmation_status_3 == '未反映' ? 'selected' : '' }}>未反映</option>
+                                                </select>
                                             </td>
                                             @if(in_array($userLevel, [1, 2, 3, 4, 5, 6]))
-                                            <td class="payment_status_detail_final" contenteditable="false"
-                                                style="max-width: 150px;">{{ $item->payment_status_detail_final }}</td>
+                                            <td>
+                                                <select name="payment_status_detail_final[{{ $item->id }}]"
+                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;" onchange="changeBackgroundColor(this)">
+                                                    <option value="" {{ $item->payment_status_detail_final == '' ? 'selected' : '' }}></option>
+                                                    <option value="支払完了" style="background-color:rgb(0, 143, 19); color: white;"
+                                                        {{ $item->payment_status_detail_final == '支払完了' ? 'selected' : '' }}>支払完了</option>
+                                                    <option value="残１回" style="background-color:rgb(143, 0, 0); color: white;"
+                                                        {{ $item->payment_status_detail_final == '残１回' ? 'selected' : '' }}>残１回</option>
+                                                    <option value="残２回" style="background-color:rgb(219, 223, 0); color: black;"
+                                                        {{ $item->payment_status_detail_final == '残２回' ? 'selected' : '' }}>残２回</option>
+                                                    <option value="残３回" style="background-color:rgb(28, 235, 1); color: black;"
+                                                        {{ $item->payment_status_detail_final == '残３回' ? 'selected' : '' }}>残３回</option>
+                                                </select>
+                                            </td>
                                             <td class="payment_memo" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->payment_memo }}</td>
+                                                {{ $item->payment_memo }}
+                                            </td>
                                             <td class="first_month" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->first_month }}</td>
+                                                {{ $item->first_month }}
+                                            </td>
                                             <td class="second_month" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->second_month }}</td>
+                                                {{ $item->second_month }}
+                                            </td>
                                             <td class="third_month" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->third_month }}</td>
+                                                {{ $item->third_month }}
+                                            </td>
                                             <td class="fee" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->fee }}</td>
+                                                {{ $item->fee }}
+                                            </td>
                                             <td class="total" contenteditable="false" style="max-width: 150px;">
-                                                {{ $item->total }}</td>
+                                                {{ $item->total }}
+                                            </td>
                                             @endif
                                         </tr>
                                         @endforeach
@@ -771,13 +1057,10 @@ option[value="未定"]:hover {
                                     <option value="不明">不明 (Không rõ ràng)</option>
                                 </select>
                             </div>
-
                             <div class="mb-3">
                                 <label for="applicant_birthdate" class="form-label">申込者・生年月日 (Ngày sinh)</label>
-                                <input type="date" class="form-control" id="applicant_birthdate"
-                                    name="applicant_birthdate" required>
+                                <input type="text" class="form-control" id="applicant_birthdate" name="applicant_birthdate" placeholder="YYYY年MM月DD日" required>
                             </div>
-
                             <div class="mb-3">
                                 <label for="contact_number" class="form-label">連絡先※ハイフン（-）有り (Số liên lạc)</label>
                                 <input type="text" class="form-control" id="contact_number" name="contact_number"
@@ -913,246 +1196,318 @@ option[value="未定"]:hover {
 </main>
 
 <script>
-document.getElementById('postal_code').addEventListener('input', function(event) {
-    var postalCode = event.target.value.replace(/\D/g, ''); // Xóa tất cả ký tự không phải số
-    if (postalCode.length <= 3) {
-        event.target.value = postalCode; // Nếu chưa đủ 4 số, không thêm dấu '-'
-    } else {
-        event.target.value = postalCode.slice(0, 3) + '-' + postalCode.slice(3, 7); // Thêm dấu '-' sau 3 số
-    }
-});
-document.getElementById('contact_number').addEventListener('input', function(event) {
-    var phoneNumber = event.target.value.replace(/\D/g, ''); // Xóa mọi ký tự không phải số
-    if (phoneNumber.length <= 3) {
-        event.target.value = phoneNumber; // Nếu chưa đủ 4 số, không thêm dấu '-'
-    } else if (phoneNumber.length <= 6) {
-        event.target.value = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3); // Thêm dấu '-' sau 3 số
-    } else {
-        event.target.value = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3, 7) + '-' + phoneNumber.slice(
-            7, 11); // Thêm dấu '-' sau 3 và 6 số
-    }
-});
+    function changeBackgroundColor(selectElement) {
+        const selectedValue = selectElement.value;
+        let backgroundColor = '';
+        let textColor = '';
 
-// Lắng nghe sự kiện khi modal được đóng
-var myModal = document.getElementById('wifiModal');
-myModal.addEventListener('hidden.bs.modal', function(event) {
-    // Reset form khi modal đóng
-    document.getElementById('orderForm').reset();
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById('application_date').value = today;
-    // document.getElementById('constructionDate').value = today;
-    document.getElementById('application_date').min = today;
-    document.getElementById('construction_request_date').min = today;
-});
-
-function searchTable_WiFi() {
-    var input, filter, table, tr, td, i, j, txtValue, index = 1;
-    input = document.getElementById('searchInput_WIFI');
-    filter = input.value.toUpperCase();
-    table = document.getElementById('dataTable');
-    tr = table.getElementsByTagName('tr');
-
-    // Lặp qua tất cả các hàng trong bảng và ẩn những hàng không khớp với truy vấn tìm kiếm
-    for (i = 1; i < tr.length; i++) {
-        tr[i].style.display = 'none';
-        td = tr[i].getElementsByTagName('td');
-        for (j = 0; j < td.length; j++) {
-            if (td[j]) {
-                txtValue = td[j].textContent || td[j].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = '';
-                    // Cập nhật số lượng đơn hàng
-                    tr[i].getElementsByClassName('order-index')[0].innerText = index++;
-                    break;
-                }
-            }
+        if (selectedValue == '戻入' || selectedValue == '戻入済' || selectedValue == '支払完了') {
+            backgroundColor = 'red';
+            textColor = 'white';
+        } else if (selectedValue == '獲得' || selectedValue == '支払済' || selectedValue == '解決済み' || selectedValue == '可能') {
+            backgroundColor = '#008f00';
+            textColor = 'white';
+        } else if (selectedValue == '未定' || selectedValue == '不備等' || selectedValue == '未確認') {
+            backgroundColor = 'lightgray';
+            textColor = 'black';
+        } else if (selectedValue == '確定中' || selectedValue == '未解決') {
+            backgroundColor = '#f7ef01';
+            textColor = 'black';
+        } else if (selectedValue == '不能') {
+            backgroundColor = 'rgb(143, 0, 0)';
+            textColor = 'white';
+        } else if (selectedValue == 'キャンセル') {
+            backgroundColor = 'rgb(138, 83, 0)';
+            textColor = 'white';
         }
+
+        // Thay đổi màu nền của dropdown select
+        selectElement.style.backgroundColor = backgroundColor;
+        // Cập nhật màu chữ cho option được chọn
+        selectElement.style.color = textColor;
     }
-}
 
-function filterTableByEntryStatus() {
-    var selectedStatus = document.getElementById("type_select").value; // Lấy giá trị chọn từ dropdown
-    var table = document.getElementById("dataTable");
-    var rows = table.getElementsByTagName("tr");
-
-    // Lặp qua tất cả các hàng trong bảng (trừ hàng tiêu đề)
-    for (var i = 1; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName("td");
-        var entryStatusCell = cells[39]; // Cột "Tình trạng Entry" là cột thứ 34 (chỉ số 33)
-
-        // Kiểm tra nếu có giá trị trong cột "Tình trạng Entry" và so sánh với giá trị đã chọn
-        if (entryStatusCell) {
-            var entryStatus = entryStatusCell.textContent || entryStatusCell.innerText;
-            if (selectedStatus === "" || entryStatus === selectedStatus) {
-                rows[i].style.display = ""; // Hiển thị hàng nếu khớp
-            } else {
-                rows[i].style.display = "none"; // Ẩn hàng nếu không khớp
-            }
-        }
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Lắng nghe sự kiện nhấn vào cột "application_number" và "remarks"
-    document.querySelectorAll('.table td').forEach(function(cell) {
-        // Khi nhấn vào một ô trong bảng
-        cell.addEventListener('click', function(event) {
-            // Kiểm tra nếu ô đang ở trạng thái không thể chỉnh sửa
-            if (this.getAttribute('contenteditable') === 'false') {
-                // Mở rộng cột và cho phép chỉnh sửa
-                this.setAttribute('contenteditable', 'true');
-                this.classList.add('expanded'); // Thêm lớp 'expanded' nếu cần thay đổi style
-
-                // Đặt con trỏ vào ô khi mở rộng
-                this.focus();
-
-                // Ngừng sự kiện click truyền tiếp để không bị xử lý bởi document
-                event.stopPropagation();
-            }
-        });
-
-        // Lắng nghe sự kiện "blur" để tự động lưu khi người dùng rời khỏi ô
-        cell.addEventListener('blur', function(event) {
-            if (this.getAttribute('contenteditable') === 'true') {
-                // Lấy giá trị đã chỉnh sửa
-                var newValue = this.innerText.trim();
-
-                if (newValue !== '') {
-                    // Lưu giá trị mới vào server
-                    autoSaveValue(this, newValue);
-                }
-
-                // Đặt lại chế độ không thể chỉnh sửa
-                this.setAttribute('contenteditable', 'false');
-                this.classList.remove('expanded');
-            }
+    // Kích hoạt hàm changeBackgroundColor khi trang được tải để thiết lập màu nền ban đầu
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectElements = document.querySelectorAll('select');
+        selectElements.forEach(function(selectElement) {
+            changeBackgroundColor(selectElement); // Thiết lập màu nền ban đầu dựa trên giá trị được chọn
         });
     });
+</script>
 
-    // Lắng nghe sự kiện nhấn ra ngoài (click vào bất kỳ đâu ngoài các ô trong bảng)
-    document.addEventListener('click', function(event) {
-        const clickedOutside = !event.target.closest('.table td');
-
-        if (clickedOutside) {
-            // Lấy tất cả các ô đang mở rộng (contenteditable = true)
-            document.querySelectorAll('.table td[contenteditable="true"]').forEach(function(cell) {
-                // Thu nhỏ lại cột và dừng chế độ chỉnh sửa
-                cell.setAttribute('contenteditable', 'false');
-                cell.classList.remove('expanded');
-            });
-        }
-    });
-});
-
-function autoSaveValue(cell, newValue) {
-    // Xác định trường cần lưu từ class của ô
-    const field = cell.classList.contains('application_number') ? 'application_number' :
-        cell.classList.contains('remarks') ? 'remarks' :
-        cell.classList.contains('crew_code') ? 'crew_code' :
-        cell.classList.contains('person_in_charge') ? 'person_in_charge' :
-        cell.classList.contains('fee_amount') ? 'fee_amount' :
-        cell.classList.contains('payment_status_detail') ? 'payment_status_detail' :
-        cell.classList.contains('fiscal_year') ? 'fiscal_year' :
-        cell.classList.contains('receipt_status_at_time') ? 'receipt_status_at_time' :
-        cell.classList.contains('sales_destination') ? 'sales_destination' :
-        cell.classList.contains('full_name') ? 'full_name' :
-        cell.classList.contains('facebook_url') ? 'facebook_url' :
-        cell.classList.contains('profile') ? 'profile' :
-        cell.classList.contains('sim') ? 'sim' :
-        cell.classList.contains('router') ? 'router' :
-        cell.classList.contains('application_status') ? 'application_status' :
-        cell.classList.contains('confirmation_call_status') ? 'confirmation_call_status' :
-        cell.classList.contains('application_date') ? 'application_date' :
-        cell.classList.contains('application_details') ? 'application_details' :
-        cell.classList.contains('application_type') ? 'application_type' :
-        cell.classList.contains('contractor_name_kanji') ? 'contractor_name_kanji' :
-        cell.classList.contains('contractor_name_kana') ? 'contractor_name_kana' :
-        cell.classList.contains('applicant_gender') ? 'applicant_gender' :
-        cell.classList.contains('applicant_birthdate') ? 'applicant_birthdate' :
-        cell.classList.contains('contact_number') ? 'contact_number' :
-        cell.classList.contains('post_confirmation_person') ? 'post_confirmation_person' :
-        cell.classList.contains('post_confirmation_time') ? 'post_confirmation_time' :
-        cell.classList.contains('email') ? 'email' :
-        cell.classList.contains('nationality') ? 'nationality' :
-        cell.classList.contains('postal_code') ? 'postal_code' :
-        cell.classList.contains('address') ? 'address' :
-        cell.classList.contains('estimated_households_count') ? 'estimated_households_count' :
-        cell.classList.contains('payment_method') ? 'payment_method' :
-        cell.classList.contains('pre_installation_rental') ? 'pre_installation_rental' :
-        cell.classList.contains('construction_request_date') ? 'construction_request_date' :
-        cell.classList.contains('construction_payment_installments') ? 'construction_payment_installments' :
-        cell.classList.contains('campaign') ? 'campaign' :
-        cell.classList.contains('entry_status') ? 'entry_status' :
-        cell.classList.contains('installation_status') ? 'installation_status' :
-        cell.classList.contains('construction_type') ? 'construction_type' :
-        cell.classList.contains('construction_date') ? 'construction_date' :
-        cell.classList.contains('opening_date') ? 'opening_date' :
-        cell.classList.contains('month_number') ? 'month_number' :
-        cell.classList.contains('fiscal_year_again') ? 'fiscal_year_again' :
-        cell.classList.contains('tp_link') ? 'tp_link' :
-        cell.classList.contains('registration_url') ? 'registration_url' :
-        cell.classList.contains('registration_status') ? 'registration_status' :
-        cell.classList.contains('account_registration_status') ? 'account_registration_status' :
-        cell.classList.contains('residence_card_number') ? 'residence_card_number' :
-        cell.classList.contains('qualification_status') ? 'qualification_status' :
-        cell.classList.contains('remarks_detail') ? 'remarks_detail' :
-        cell.classList.contains('processing_status') ? 'processing_status' :
-        cell.classList.contains('status') ? 'status' :
-        cell.classList.contains('month_number_again') ? 'month_number_again' :
-        cell.classList.contains('confirmation_field') ? 'confirmation_field' :
-        cell.classList.contains('login_url') ? 'login_url' :
-        cell.classList.contains('mypage_id') ? 'mypage_id' :
-        cell.classList.contains('password') ? 'password' :
-        cell.classList.contains('payment_confirmation_status_1') ? 'payment_confirmation_status_1' :
-        cell.classList.contains('payment_confirmation_status_2') ? 'payment_confirmation_status_2' :
-        cell.classList.contains('payment_confirmation_status_3') ? 'payment_confirmation_status_3' :
-        cell.classList.contains('payment_status_detail_final') ? 'payment_status_detail_final' :
-        cell.classList.contains('payment_memo') ? 'payment_memo' :
-        cell.classList.contains('first_month') ? 'first_month' :
-        cell.classList.contains('second_month') ? 'second_month' :
-        cell.classList.contains('third_month') ? 'third_month' :
-        cell.classList.contains('fee') ? 'fee' :
-        cell.classList.contains('total') ? 'total' : ''; // Điều kiện để xác định trường
-
-    const id = cell.closest('tr').dataset.id; // Lấy ID từ thuộc tính data-id của hàng
-
-    // Debug: kiểm tra giá trị gửi đi   
-    console.log("Data to send:", {
-        id: id,
-        field: field,
-        value: newValue
-    });
-
-    // Gửi yêu cầu lưu qua AJAX
-    fetch('/update-field', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                'content'), // CSRF token từ meta
-            },
-            body: JSON.stringify({
-                id: id,
-                field: field,
-                value: newValue
+<script>
+    function updateCheckbox(itemId, fieldName, isChecked) {
+        // Gửi yêu cầu AJAX để cập nhật trạng thái của checkbox
+        fetch('/update-checkbox', { // Đổi URL thành '/update-checkbox'
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    item_id: itemId,
+                    field: fieldName,
+                    value: isChecked ? 1 : 0
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Response:', data); // Debug: kiểm tra phản hồi từ server
-            if (data.success) {
-                console.log('Đã lưu thành công!');
-            } else {
-                alert('Có lỗi xảy ra khi lưu!');
+            .then(response => response.json())
+            .then(data => {
+                // Xử lý phản hồi từ server nếu cần
+                console.log(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    // Hàm để chuyển đổi ngày từ định dạng YYYY-MM-DD sang YYYY年MM月DD日
+    function formatDateToJapanese(date) {
+        var d = new Date(date);
+        var year = d.getFullYear();
+        var month = ("0" + (d.getMonth() + 1)).slice(-2); // Lấy tháng (thêm 0 vào đầu nếu tháng nhỏ hơn 10)
+        var day = ("0" + d.getDate()).slice(-2); // Lấy ngày (thêm 0 vào đầu nếu ngày nhỏ hơn 10)
+
+        return year + '年' + month + '月' + day + '日';
+    }
+
+    // Lắng nghe sự kiện khi người dùng chọn ngày
+    document.getElementById('applicant_birthdate').addEventListener('focus', function() {
+        // Mở hộp thoại chọn ngày khi người dùng nhấp vào
+        var input = this;
+        var currentDate = input.value ? input.value.split('年').join('-').split('月').join('-').split('日').join('') : '';
+        input.type = 'date';
+        input.value = currentDate; // Chuyển đổi sang định dạng YYYY-MM-DD cho input[type=date]
+    });
+
+    document.getElementById('applicant_birthdate').addEventListener('blur', function() {
+        // Khi người dùng rời khỏi trường input, chuyển lại thành định dạng ngày Nhật Bản
+        var input = this;
+        if (input.value) {
+            var formattedDate = formatDateToJapanese(input.value);
+            input.type = 'text';
+            input.value = formattedDate;
+        }
+    });
+
+    document.getElementById('postal_code').addEventListener('input', function(event) {
+        var postalCode = event.target.value.replace(/\D/g, ''); // Xóa tất cả ký tự không phải số
+        if (postalCode.length <= 3) {
+            event.target.value = postalCode; // Nếu chưa đủ 4 số, không thêm dấu '-'
+        } else {
+            event.target.value = postalCode.slice(0, 3) + '-' + postalCode.slice(3, 7); // Thêm dấu '-' sau 3 số
+        }
+    });
+    document.getElementById('contact_number').addEventListener('input', function(event) {
+        var phoneNumber = event.target.value.replace(/\D/g, ''); // Xóa mọi ký tự không phải số
+        if (phoneNumber.length <= 3) {
+            event.target.value = phoneNumber; // Nếu chưa đủ 4 số, không thêm dấu '-'
+        } else if (phoneNumber.length <= 6) {
+            event.target.value = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3); // Thêm dấu '-' sau 3 số
+        } else {
+            event.target.value = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3, 7) + '-' + phoneNumber.slice(
+                7, 11); // Thêm dấu '-' sau 3 và 6 số
+        }
+    });
+
+    // Lắng nghe sự kiện khi modal được đóng
+    var myModal = document.getElementById('wifiModal');
+    myModal.addEventListener('hidden.bs.modal', function(event) {
+        // Reset form khi modal đóng
+        document.getElementById('orderForm').reset();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('application_date').value = today;
+        // document.getElementById('constructionDate').value = today;
+        document.getElementById('application_date').min = today;
+        document.getElementById('construction_request_date').min = today;
+    });
+
+    function searchTable_WiFi() {
+        var input, filter, table, tr, td, i, j, txtValue, index = 1;
+        input = document.getElementById('searchInput_WIFI');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('dataTable');
+        tr = table.getElementsByTagName('tr');
+
+        // Lặp qua tất cả các hàng trong bảng và ẩn những hàng không khớp với truy vấn tìm kiếm
+        for (i = 1; i < tr.length; i++) {
+            tr[i].style.display = 'none';
+            td = tr[i].getElementsByTagName('td');
+            for (j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = '';
+                        // Cập nhật số lượng đơn hàng
+                        tr[i].getElementsByClassName('order-index')[0].innerText = index++;
+                        break;
+                    }
+                }
             }
-        })
-        .catch(error => {
-            console.error('Có lỗi xảy ra:', error);
+        }
+    }
+
+    function filterTableByEntryStatus() {
+        var selectedStatus = document.getElementById("type_select").value; // Lấy giá trị chọn từ dropdown
+        var table = document.getElementById("dataTable");
+        var rows = table.getElementsByTagName("tr");
+
+        // Lặp qua tất cả các hàng trong bảng (trừ hàng tiêu đề)
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var entryStatusCell = cells[39]; // Cột "Tình trạng Entry" là cột thứ 34 (chỉ số 33)
+
+            // Kiểm tra nếu có giá trị trong cột "Tình trạng Entry" và so sánh với giá trị đã chọn
+            if (entryStatusCell) {
+                var entryStatus = entryStatusCell.textContent || entryStatusCell.innerText;
+                if (selectedStatus === "" || entryStatus === selectedStatus) {
+                    rows[i].style.display = ""; // Hiển thị hàng nếu khớp
+                } else {
+                    rows[i].style.display = "none"; // Ẩn hàng nếu không khớp
+                }
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lắng nghe sự kiện nhấn vào cột "application_number" và "remarks"
+        document.querySelectorAll('.table td').forEach(function(cell) {
+            // Khi nhấn vào một ô trong bảng
+            cell.addEventListener('click', function(event) {
+                // Kiểm tra nếu ô đang ở trạng thái không thể chỉnh sửa
+                if (this.getAttribute('contenteditable') === 'false') {
+                    // Mở rộng cột và cho phép chỉnh sửa
+                    this.setAttribute('contenteditable', 'true');
+                    this.classList.add('expanded'); // Thêm lớp 'expanded' nếu cần thay đổi style
+
+                    // Đặt con trỏ vào ô khi mở rộng
+                    this.focus();
+
+                    // Ngừng sự kiện click truyền tiếp để không bị xử lý bởi document
+                    event.stopPropagation();
+                }
+            });
+
+            // Lắng nghe sự kiện "blur" để tự động lưu khi người dùng rời khỏi ô
+            cell.addEventListener('blur', function(event) {
+                if (this.getAttribute('contenteditable') === 'true') {
+                    // Lấy giá trị đã chỉnh sửa
+                    var newValue = this.innerText.trim();
+
+                    if (newValue !== '') {
+                        // Lưu giá trị mới vào server
+                        autoSaveValue(this, newValue);
+                    }
+
+                    // Đặt lại chế độ không thể chỉnh sửa
+                    this.setAttribute('contenteditable', 'false');
+                    this.classList.remove('expanded');
+                }
+            });
         });
-}
+
+        // Lắng nghe sự kiện nhấn ra ngoài (click vào bất kỳ đâu ngoài các ô trong bảng)
+        document.addEventListener('click', function(event) {
+            const clickedOutside = !event.target.closest('.table td');
+
+            if (clickedOutside) {
+                // Lấy tất cả các ô đang mở rộng (contenteditable = true)
+                document.querySelectorAll('.table td[contenteditable="true"]').forEach(function(cell) {
+                    // Thu nhỏ lại cột và dừng chế độ chỉnh sửa
+                    cell.setAttribute('contenteditable', 'false');
+                    cell.classList.remove('expanded');
+                });
+            }
+        });
+    });
+
+    function autoSaveValue(cell, newValue) {
+        // Xác định trường cần lưu từ class của ô
+        const field = cell.classList.contains('application_number') ? 'application_number' :
+            cell.classList.contains('remarks') ? 'remarks' :
+            cell.classList.contains('crew_code') ? 'crew_code' :
+            cell.classList.contains('person_in_charge') ? 'person_in_charge' :
+            cell.classList.contains('fee_amount') ? 'fee_amount' :
+            cell.classList.contains('payment_status_detail') ? 'payment_status_detail' :
+            cell.classList.contains('fiscal_year') ? 'fiscal_year' :
+            cell.classList.contains('receipt_status_at_time') ? 'receipt_status_at_time' :
+            cell.classList.contains('profile') ? 'profile' :
+            cell.classList.contains('sim') ? 'sim' :
+            cell.classList.contains('router') ? 'router' :
+            cell.classList.contains('application_status') ? 'application_status' :
+            cell.classList.contains('confirmation_call_status') ? 'confirmation_call_status' :
+            cell.classList.contains('post_confirmation_person') ? 'post_confirmation_person' :
+            cell.classList.contains('entry_status') ? 'entry_status' :
+            cell.classList.contains('installation_status') ? 'installation_status' :
+            cell.classList.contains('construction_type') ? 'construction_type' :
+            cell.classList.contains('construction_date') ? 'construction_date' :
+            cell.classList.contains('opening_date') ? 'opening_date' :
+            cell.classList.contains('month_number') ? 'month_number' :
+            cell.classList.contains('fiscal_year_again') ? 'fiscal_year_again' :
+            cell.classList.contains('tp_link') ? 'tp_link' :
+            cell.classList.contains('registration_url') ? 'registration_url' :
+            cell.classList.contains('registration_status') ? 'registration_status' :
+            cell.classList.contains('account_registration_status') ? 'account_registration_status' :
+            cell.classList.contains('residence_card_number') ? 'residence_card_number' :
+            cell.classList.contains('qualification_status') ? 'qualification_status' :
+            cell.classList.contains('remarks_detail') ? 'remarks_detail' :
+            cell.classList.contains('processing_status') ? 'processing_status' :
+            cell.classList.contains('status') ? 'status' :
+            cell.classList.contains('month_number_again') ? 'month_number_again' :
+            cell.classList.contains('confirmation_field') ? 'confirmation_field' :
+            cell.classList.contains('login_url') ? 'login_url' :
+            cell.classList.contains('mypage_id') ? 'mypage_id' :
+            cell.classList.contains('password') ? 'password' :
+            cell.classList.contains('payment_confirmation_status_1') ? 'payment_confirmation_status_1' :
+            cell.classList.contains('payment_confirmation_status_2') ? 'payment_confirmation_status_2' :
+            cell.classList.contains('payment_confirmation_status_3') ? 'payment_confirmation_status_3' :
+            cell.classList.contains('payment_status_detail_final') ? 'payment_status_detail_final' :
+            cell.classList.contains('payment_memo') ? 'payment_memo' :
+            cell.classList.contains('first_month') ? 'first_month' :
+            cell.classList.contains('second_month') ? 'second_month' :
+            cell.classList.contains('third_month') ? 'third_month' :
+            cell.classList.contains('fee') ? 'fee' :
+            cell.classList.contains('total') ? 'total' : ''; // Điều kiện để xác định trường
+
+        const id = cell.closest('tr').dataset.id; // Lấy ID từ thuộc tính data-id của hàng
+
+        // Debug: kiểm tra giá trị gửi đi   
+        console.log("Data to send:", {
+            id: id,
+            field: field,
+            value: newValue
+        });
+
+        // Gửi yêu cầu lưu qua AJAX
+        fetch('/update-field', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                        'content'), // CSRF token từ meta
+                },
+                body: JSON.stringify({
+                    id: id,
+                    field: field,
+                    value: newValue
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response:', data); // Debug: kiểm tra phản hồi từ server
+                if (data.success) {
+                    console.log('Đã lưu thành công!');
+                } else {
+                    alert('Có lỗi xảy ra khi lưu!');
+                }
+            })
+            .catch(error => {
+                console.error('Có lỗi xảy ra:', error);
+            });
+    }
 </script>
 
 @endsection

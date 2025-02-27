@@ -134,4 +134,25 @@ class WifiController extends Controller
         // Trả về phản hồi thành công
         return response()->json(['success' => 'Updated successfully']);
     }
+    // CareerController.php
+    public function updateCheckbox(Request $request)
+    {
+        $validated = $request->validate([
+            'item_id' => 'required|integer',
+            'field' => 'required|string',
+            'value' => 'required|boolean',
+        ]);
+
+        // Lấy item từ cơ sở dữ liệu
+        $item = fixed_wifi::find($validated['item_id']);
+        if ($item) {
+            // Cập nhật trường tương ứng dựa trên tên trường (field)
+            $item->{$validated['field']} = $validated['value'];
+            $item->save();
+
+            return response()->json(['message' => 'Status updated successfully']);
+        }
+
+        return response()->json(['message' => 'Item not found'], 404);
+    }
 }
