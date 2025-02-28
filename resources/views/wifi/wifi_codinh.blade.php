@@ -548,20 +548,20 @@
                                             <td>
                                                 <input type="checkbox" {{ $item->career_confirmed == 1 ? 'checked' : '' }} readonly>
                                             </td>
-                                            <!-- <td class="payment_status" style="padding: 5px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; width: 60px;" >
-                                                {{ $item->payment_status }}
-                                            </td> -->
-                                            <td>
-                                                <select name="payment_status[{{ $item->id }}]"
-                                                    style="padding: 3px 15px; border-radius: 15px; border: 1px solid #ffffff; font-size: 14px; width: auto;"
-                                                    id="payment-status-{{ $item->id }}">
-                                                    <option value="戻入" style="background-color: red; color: white;"
-                                                        {{ $item->payment_status == '戻入' ? 'selected' : '' }}>戻入</option>
-                                                    <option value="獲得" style="background-color: #008f00; color: white;"
-                                                        {{ $item->payment_status == '獲得' ? 'selected' : '' }}>獲得</option>
-                                                    <option value="未定" style="background-color: lightgray; color: black;"
-                                                        {{ $item->payment_status == '未定' ? 'selected' : '' }}>未定</option>
-                                                </select>
+                                            <td class="payment_status" style="padding: 3px 15px; border: 1px solid #ccc; font-size: 14px; width: 60px;">
+                                                @if($item->payment_status == '戻入')
+                                                <span style="background-color: red; color: white; padding: 3px 15px; border-radius: 15px; display: inline-block;">
+                                                    戻入
+                                                </span>
+                                                @elseif($item->payment_status == '獲得')
+                                                <span style="background-color: #008f00; color: white; padding: 3px 15px; border-radius: 15px; display: inline-block;">
+                                                    獲得
+                                                </span>
+                                                @elseif($item->payment_status == '未定')
+                                                <span style="background-color: lightgray; color: black; padding: 3px 15px; border-radius: 15px; display: inline-block;">
+                                                    未定
+                                                </span>
+                                                @endif
                                             </td>
                                             <td class="application_number" contenteditable="false" style="max-width: 150px;">{{ $item->application_number }}</td>
                                             <td class="remarks" contenteditable="false" style="max-width: 150px;">{{ $item->remarks }}</td>
